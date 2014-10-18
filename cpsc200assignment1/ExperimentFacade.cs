@@ -42,7 +42,14 @@ namespace cpsc200assignment1
 
         private void unitTests()
         {
-
+            int i = int.Parse(Console.ReadLine());
+            switch(i)
+            {
+                case 1:
+                {
+                    break;
+                }
+            }
         }
 
         private void experiment()
@@ -62,66 +69,66 @@ namespace cpsc200assignment1
             switch (i)
             {
                 case 1:
-                    {
-                        e.runExperiment1();
-                        break;
-                    }
+                {
+                    e.runExperiment1();
+                    break;
+                }
                 case 2:
-                    {
-                        e.runExperiment2();
-                        break;
-                    }
+                {
+                    e.runExperiment2();
+                    break;
+                }
                 case 3:
-                    {
-                        e.runExperiment3();
-                        break;
-                    }
+                {
+                     e.runExperiment3();
+                     break;
+                }
                 case 4:
-                    {
-                        e.runExperiment4();
-                        break;
-                    }
+                {
+                    e.runExperiment4();
+                    break;
+                }
                 case 5:
-                    {
-                        e.runExperiment5();
-                        break;
-                    }
+                {
+                    e.runExperiment5();
+                    break;
+                }
                 case 6:
-                    {
-                        e.runExperiment6();
-                        break;
-                    }
+                {
+                    e.runExperiment6();
+                    break;
+                }
                 case 7:
-                    {
-                        e.runExperiment7();
-                        break;
-                    }
+                {
+                     e.runExperiment7();
+                     break;
+                }
                 case 8:
-                    {
-                        e.runExperiment8();
-                        break;
-                    }
+                {
+                    e.runExperiment8();
+                    break;
+                }
                 case 9:
-                    {
-                        e.runExperiment9();
-                        break;
-                    }
+                {
+                    e.runExperiment9();
+                    break;
+                }
                 case 10:
-                    {
-                        e.runExperiment10();
-                        break;
-                    }
+                {
+                    e.runExperiment10();
+                    break;
+                }
                 case 11:
-                    {
-                        e.runAllExperiment();
-                        break;
-                    }
+                {
+                    e.runAllExperiment();
+                    break;
+                }
                 default:
-                    {
-                        Console.WriteLine("invalid input please try again");
-                        experiment();
-                        break;
-                    }
+                {
+                    Console.WriteLine("invalid input please try again");
+                    experiment();
+                    break;
+                }
             }
         }
     }

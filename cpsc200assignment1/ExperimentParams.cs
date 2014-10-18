@@ -13,10 +13,10 @@ namespace cpsc200assignment1
         {
             get { return ArraySize; }
         }
-        private bool SortDirection;
-        public bool sortDirection
+        private SortDirection sD;
+        public  SortDirection sortDirection
         {
-            get { return SortDirection; }
+            get { return sD; }
         }
         private Sorts SortType;
         public Sorts sortType
@@ -30,7 +30,7 @@ namespace cpsc200assignment1
         public ExperimentParams()
         {
             ArraySize = 0;
-            SortDirection = true;
+            sD = SortDirection.normal;
             GenArray = new GenArray();
         }
 
@@ -40,18 +40,23 @@ namespace cpsc200assignment1
             list = GenArray.genArray(ArraySize);
         }
 
-        public void setParams(int arraySize, Boolean sortDirection, Sorts sorts )
+        public void setParams(GapType gapType)
+        {
+            gapSequence = GapSeq.GapSequence(gapType);
+        }
+
+        public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts )
         {
             ArraySize = arraySize;
-            SortDirection = sortDirection;
+            sD = sortDirection;
             SortType = sorts;
             list = GenArray.genArray(ArraySize);
         }
 
-        public void setParams(int arraySize, Boolean sortDirection, Sorts sorts, GapType gapType)
+        public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, GapType gapType)
         {
             ArraySize = arraySize;
-            SortDirection = sortDirection;
+            sD = sortDirection;
             SortType = sorts;
             gapSequence = GapSeq.GapSequence(gapType);
             list = GenArray.genArray(ArraySize);

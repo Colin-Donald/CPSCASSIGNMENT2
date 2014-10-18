@@ -34,7 +34,7 @@ namespace cpsc200assignment1
         public void runExperiment1()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize,true,Sorts.selectionSort);
+            ep.setParams(arraySize,SortDirection.normal,Sorts.selectionSort);
             while(arraySize<150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -49,7 +49,7 @@ namespace cpsc200assignment1
         public void runExperiment2()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.selectionSort);
+            ep.setParams(arraySize, SortDirection.reverse, Sorts.selectionSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -64,7 +64,7 @@ namespace cpsc200assignment1
         public void runExperiment3()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.selectionSort);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.selectionSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -79,7 +79,7 @@ namespace cpsc200assignment1
         public void runExperiment4()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.insertionSort);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.insertionSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -94,7 +94,7 @@ namespace cpsc200assignment1
         public void runExperiment5()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.insertionSort);
+            ep.setParams(arraySize, SortDirection.reverse, Sorts.insertionSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -109,7 +109,7 @@ namespace cpsc200assignment1
         public void runExperiment6()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.insertionSort);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.insertionSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -124,7 +124,7 @@ namespace cpsc200assignment1
         public void runExperiment7()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.shellSort);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -139,7 +139,7 @@ namespace cpsc200assignment1
         public void runExperiment8()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.shellSort);
+            ep.setParams(arraySize, SortDirection.reverse, Sorts.shellSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -154,7 +154,7 @@ namespace cpsc200assignment1
         public void runExperiment9()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.shellSort);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort);
             while (arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -169,13 +169,46 @@ namespace cpsc200assignment1
         public void runExperiment10()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, true, Sorts.shellSort , GapType.knuth);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort);
             while (arraySize < 150000)
             {
-                for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 3; j++)
                 {
-                    ep.setParams(arraySize);
-                    sf.sort(ep);
+                    switch (j) 
+                    {
+                        case 0:
+                        {
+                            ep.setParams(GapType.knuth);
+                            for (int i = 0; i < 10; i++)
+                            {
+                                ep.setParams(arraySize);
+                                sf.sort(ep);
+                            }
+                            break;
+                        }
+                        case 1:
+                        {
+                            ep.setParams(GapType.pratt);
+                            for (int i = 0; i < 10; i++)
+                            {
+                                ep.setParams(arraySize);
+                                sf.sort(ep);
+                            }
+                            break;
+                        }
+                        case 2:
+                        {
+                            ep.setParams(GapType.tokuda);
+                            for (int i = 0; i < 10; i++)
+                            {
+                                ep.setParams(arraySize);
+                                sf.sort(ep);
+                            }
+                            break;
+                        }
+
+                    }
+                    
                 }
                 arraySize += 5000;
             }

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace cpsc200assignment1
 {
     public enum Sorts { insertionSort, selectionSort, shellSort }
-    public enum GapType {knuth, pratt }
+    public enum GapType {knuth, pratt, tokuda }
+    public enum SortDirection { normal , reverse}
     class Program
     {
         public Program()
