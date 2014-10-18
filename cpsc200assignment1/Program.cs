@@ -9,6 +9,7 @@ namespace cpsc200assignment1
     public enum Sorts { insertionSort, selectionSort, shellSort }
     public enum GapType {knuth, pratt, tokuda }
     public enum SortDirection { normal , reverse}
+    public enum ArrayType { normal, distinct}
     class Program
     {
         public Program()
