@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
@@ -15,6 +16,7 @@ namespace cpsc200assignment1
 
         public void sort(ExperimentParams e)
         {
+            Stopwatch sW = Stopwatch.StartNew();
             int listSize = e.list.Length;
             foreach(int gap in e.gapSequence)
             {
@@ -30,6 +32,9 @@ namespace cpsc200assignment1
                     e.list[j + gap] = val;
                 }
             }
+            sW.Stop();
+            e.runTime = sW.ElapsedMilliseconds;
+            sW.Reset();
         }
 
         public void printList(int[] list)

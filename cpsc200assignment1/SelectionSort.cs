@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
@@ -15,6 +16,7 @@ namespace cpsc200assignment1
 
         public void sort(ExperimentParams e)
         {
+            Stopwatch sW = Stopwatch.StartNew();
             int listSize = e.list.Length;
             int nextPos = 0;
             while(nextPos < listSize)
@@ -27,25 +29,17 @@ namespace cpsc200assignment1
                         minElement = i;
                     }
                 }
-                swap(e.list , minElement , nextPos);
+                int temp = e.list[minElement];
+                e.list[minElement] = e.list[nextPos];
+                e.list[nextPos] = temp;
                 nextPos++;
             }
-
+            sW.Stop();
+            e.runTime = sW.ElapsedMilliseconds;
+            sW.Reset();
+            printList(e.list);
         }
 
-
-        public void swap(int[] list , int minElement, int nexPos)
-        {
-            int temp = list[minElement];
-            list[minElement] = list[nexPos];
-            list[nexPos] = temp;
-        }
-
-
-        public void setArray()
-        {
-
-        }
 
         public void printList(int[] list)
         {

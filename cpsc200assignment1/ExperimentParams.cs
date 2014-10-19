@@ -48,7 +48,12 @@ namespace cpsc200assignment1
             GenArray = new GenArray();
         }
 
-        private int runtime;
+        private long runtime;
+        public long runTime
+        {
+            get { return runTime; }
+            set { runtime = runTime; }
+        }
 
         public void setParams(int arraySize)
         {

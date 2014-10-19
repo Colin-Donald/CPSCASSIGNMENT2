@@ -17,7 +17,6 @@ namespace cpsc200assignment1
         public void sort(ExperimentParams e)
         {
             Stopwatch sW = Stopwatch.StartNew();
-
             int listSize = e.list.Length;
             for(int i = 1; i < listSize; i++)
             {
@@ -31,6 +30,9 @@ namespace cpsc200assignment1
                 e.list[j] = val;
             }
             sW.Stop();
+            e.runTime = sW.ElapsedMilliseconds;
+            sW.Reset();
+            printList(e.list);
         }
 
         public void printList(int[] list)
