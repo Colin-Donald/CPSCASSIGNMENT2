@@ -8,9 +8,17 @@ namespace cpsc200assignment1
 {
     class FileIO
     {
+        private List<ExperimentParams> ep = new List<ExperimentParams>();
+
         public FileIO()
         {
 
         }
+
+        public void results(ExperimentParams e)
+        {
+            ep.Add(e);
+        }
+
     }
 }

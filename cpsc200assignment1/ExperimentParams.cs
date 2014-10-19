@@ -48,6 +48,8 @@ namespace cpsc200assignment1
             GenArray = new GenArray();
         }
 
+        private int runtime;
+
         public void setParams(int arraySize)
         {
             ArraySize = arraySize;

@@ -30,6 +30,7 @@ namespace cpsc200assignment1
                 swap(e.list , minElement , nextPos);
                 nextPos++;
             }
+
         }
 
 

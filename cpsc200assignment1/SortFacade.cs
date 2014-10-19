@@ -41,18 +41,21 @@ namespace cpsc200assignment1
                 {
                     Sort jSort = (Sort)iS;
                     jSort.sort(e);
+                    fileIO.results(e);
                     break;
                 }
                 case Sorts.selectionSort:
                 {
                     Sort kSort = (Sort)sS;
                     kSort.sort(e);
+                    fileIO.results(e);
                     break;
                 }
                 case Sorts.shellSort:
                 {
                     Sort lSort = (Sort)shS;
                     lSort.sort(e);
+                    fileIO.results(e);
                     break;
                 }
                 default :
