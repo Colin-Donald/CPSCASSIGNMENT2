@@ -13,21 +13,21 @@ namespace cpsc200assignment1
             
         }
 
-        public void sort(int[] list)
+        public void sort(ExperimentParams e)
         {
-            int listSize = list.Length;
+            int listSize = e.list.Length;
             int nextPos = 0;
             while(nextPos < listSize)
             {
                 int minElement = nextPos;
                 for(int i = nextPos + 1; i < listSize; i++)
                 {
-                    if(list[i] < list[minElement])
+                    if(e.list[i] < e.list[minElement])
                     {
                         minElement = i;
                     }
                 }
-                swap(list , minElement , nextPos);
+                swap(e.list , minElement , nextPos);
                 nextPos++;
             }
         }

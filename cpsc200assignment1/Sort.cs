@@ -8,6 +8,6 @@ namespace cpsc200assignment1
 {
     interface Sort
     {
-        void sort(int[] list);
+        void sort(ExperimentParams ep);
     }
 }

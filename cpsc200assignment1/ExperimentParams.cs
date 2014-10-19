@@ -31,9 +31,16 @@ namespace cpsc200assignment1
         }
 
         private GenArray GenArray;
-        public int[] list;
-        private int[] gapSequence;
-
+        private int[] List;
+        public int[] list
+        {
+            get{ return List; }
+        }
+        private int[] GapSequence;
+        public int[] gapSequence
+        {
+            get { return GapSequence; }
+        }
         public ExperimentParams()
         {
             ArraySize = 0;
@@ -44,14 +51,14 @@ namespace cpsc200assignment1
         public void setParams(int arraySize)
         {
             ArraySize = arraySize;
-            list = GenArray.genArray(ArraySize);
+            List = GenArray.genArray(ArraySize);
         }
 
 
 
         public void setParams(GapType gapType)
         {
-            gapSequence = GapSeq.GapSequence(gapType);
+            GapSequence = GapSeq.GapSequence(gapType);
         }
 
         public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType )
@@ -60,7 +67,7 @@ namespace cpsc200assignment1
             sD = sortDirection;
             SortType = sorts;
             aT = arrayType;
-            list = GenArray.genArray(arrayType, ArraySize);
+            List = GenArray.genArray(arrayType, ArraySize);
         }
 
         public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType , GapType gapType)
@@ -69,8 +76,8 @@ namespace cpsc200assignment1
             sD = sortDirection;
             SortType = sorts;
             aT = arrayType;
-            gapSequence = GapSeq.GapSequence(gapType);
-            list = GenArray.genArray(ArraySize);
+            GapSequence = GapSeq.GapSequence(gapType);
+            List = GenArray.genArray(ArraySize);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
@@ -13,20 +14,23 @@ namespace cpsc200assignment1
             
         }
 
-        public void sort(int[] list)
+        public void sort(ExperimentParams e)
         {
-            int listSize = list.Length;
+            Stopwatch sW = Stopwatch.StartNew();
+
+            int listSize = e.list.Length;
             for(int i = 1; i < listSize; i++)
             {
-                int val = list[i];
+                int val = e.list[i];
                 int j = i;
-                while (j > 0 && list[j - 1] > val)
+                while (j > 0 && e.list[j - 1] > val)
                 {
-                    list[j] = list[j - 1];
+                    e.list[j] = e.list[j - 1];
                     j--;
                 }
-                list[j] = val;
+                e.list[j] = val;
             }
+            sW.Stop();
         }
 
         public void printList(int[] list)

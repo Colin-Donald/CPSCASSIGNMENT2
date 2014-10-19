@@ -13,22 +13,21 @@ namespace cpsc200assignment1
 
         }
 
-        public void sort(int[] list)
+        public void sort(ExperimentParams e)
         {
-            int[] gapSeq = null;
-            int listSize = list.Length;
-            foreach(int gap in gapSeq)
+            int listSize = e.list.Length;
+            foreach(int gap in e.gapSequence)
             {
                 for (int i = 1; i < listSize; i++)
                 {
-                    int val = list[i];
+                    int val = e.list[i];
                     int j = i - gap;
-                    while (j > 0 && list[j - 1] > val)
+                    while (j > 0 && e.list[j - 1] > val)
                     {
-                        list[j] = list[j - 1];
+                        e.list[j] = e.list[j - 1];
                         j -= gap;
                     }
-                    list[j + gap] = val;
+                    e.list[j + gap] = val;
                 }
             }
         }

@@ -23,6 +23,8 @@ namespace cpsc200assignment1
         {
             get { return SHS; }
         }
+        private FileIO fileIO;
+
         public SortFacade()
         {
             IS = new InsertionSort();
@@ -38,19 +40,19 @@ namespace cpsc200assignment1
                 case Sorts.insertionSort:
                 {
                     Sort jSort = (Sort)iS;
-                    jSort.sort(e.list);
+                    jSort.sort(e);
                     break;
                 }
                 case Sorts.selectionSort:
                 {
                     Sort kSort = (Sort)sS;
-                    kSort.sort(e.list);
+                    kSort.sort(e);
                     break;
                 }
                 case Sorts.shellSort:
                 {
                     Sort lSort = (Sort)shS;
-                    lSort.sort(e.list);
+                    lSort.sort(e);
                     break;
                 }
                 default :
