@@ -34,6 +34,7 @@ namespace cpsc200assignment1
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
+            Console.WriteLine(e.runTime);
             sW.Reset();
         }
 

@@ -37,13 +37,13 @@ namespace cpsc200assignment1
         public long runTime
         {
             get { return runtime; }
-            set { runtime = runTime; }
+            set {runtime = value; }
         }
         private int Memory;
         public int memory
         {
             get { return Memory; }
-            set { Memory = memory; }
+            set { Memory = value; }
         }
         private GenArray GenArray;
         private int[] List;
@@ -70,10 +70,12 @@ namespace cpsc200assignment1
             List = GenArray.genArray(ArraySize);
         }
 
-        public void setParams(GapType gapType)
+        public void setParams(int arraySize, GapType gapType)
         {
             this.GapType = gapType;
-            GapSequence = GapSeq.GapSequence(gapType,arraySize);
+            ArraySize = arraySize;
+            GapSequence = GapSeq.GapSequence(GapType, ArraySize);
+            List = GenArray.genArray(ArraySize);
         }
 
         public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType )

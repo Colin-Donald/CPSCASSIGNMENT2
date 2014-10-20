@@ -31,16 +31,8 @@ namespace cpsc200assignment1
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
+            Console.WriteLine(e.runTime);
             sW.Reset();
-            //printList(e.list);
-        }
-
-        public void printList(int[] list)
-        {
-            for (int i = 0; i < list.Length; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
         }
     }
 }

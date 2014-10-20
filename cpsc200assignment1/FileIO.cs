@@ -18,15 +18,16 @@ namespace cpsc200assignment1
         public FileIO()
         {
             ep = new List<ExperimentParams>();
-            this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            this.fileName = @"\test.csv";
+            this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            this.fileName = @"\experimental_results.csv";
             this.delimiter = ",";
             sB = new StringBuilder();
         }
 
         public void results(ExperimentParams e)
         {
-            ep.Add(e);
+            ExperimentParams copy = e;
+            ep.Add(copy);
         }
 
         public void printResults()

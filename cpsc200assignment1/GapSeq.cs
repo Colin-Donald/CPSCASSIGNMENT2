@@ -37,6 +37,7 @@ namespace cpsc200assignment1
         private static int[] knuthSeq(int arraySize)
         {
             int[] knuth = new int[20];
+            int[] Knuth;
             for (int i = 1; i < 21; i++)
             {
                 knuth[i - 1] = ((int)Math.Pow(3, i) - 1) / 2;
@@ -44,13 +45,16 @@ namespace cpsc200assignment1
             knuth = sort(knuth);
             for (int i = 0; i < 20; i++)
             {
-                if(knuth[i] <= arraySize)
+                if(knuth[i] < arraySize)
                 {
-                    for (int j = 0; j < 20 - i; j++)
+                    int k = i;
+                    Knuth = new int[20 - k];
+                    for (int j = 0; j < 20 - k; j++)
                     {
-                        knuth[j] = knuth[i];
+                        Knuth[j] = knuth[i];
                         i++;
                     }
+                    knuth = Knuth;
                 }
             }
             return knuth;
@@ -59,20 +63,25 @@ namespace cpsc200assignment1
         private static int[] hibbardSeq(int arraySize)
         {
             int[] hibbard = new int[30];
-            for (int i = 1; i < 21; i++)
+            int[] Hibbard;
+            for (int i = 1; i < 31; i++)
             {
-                hibbard[i - 1] = (int)Math.Pow(2, i) + 1;
+                hibbard[i - 1] = (int)Math.Pow(2, i) - 1;
             }
             hibbard = sort(hibbard);
             for (int i = 0; i < 30; i++)
             {
-                if (hibbard[i] <= arraySize)
+                if (hibbard[i] < arraySize)
                 {
-                    for (int j = 0; j < 30 - i; j++)
+                    int k = i;
+                    Hibbard = new int[30 - k];
+                    for (int j = 0; j < 30 - k; j++)
                     {
-                        hibbard[j] = hibbard[i];
+                        
+                        Hibbard[j] = hibbard[i];
                         i++;
                     }
+                    hibbard = Hibbard;
                 }
             }
             return hibbard;
@@ -80,21 +89,25 @@ namespace cpsc200assignment1
 
         private static int[] tokudaSeq(int arraySize)
         {
-            int[] tokuda = new int[27];
-            for (int i = 1; i < 21; i++)
+            int[] tokuda = new int[26];
+            int[] Tokuda;
+            for (int i = 1; i < 27; i++)
             {
                 tokuda[i - 1] = (int)((Math.Pow(9, i) - Math.Pow(4, i)) / (5 * Math.Pow(4, i - 1)));
             }
             tokuda = sort(tokuda);
-            for (int i = 0; i < 27; i++)
+            for (int i = 0; i < 26; i++)
             {
                 if (tokuda[i] <= arraySize)
                 {
-                    for (int j = 0; j < 27 - i; j++)
+                    int k = i;
+                    Tokuda = new int[26 - k];
+                    for (int j = 0; j < 26 - k; j++)
                     {
-                        tokuda[j] = tokuda[i];
+                        Tokuda[j] = tokuda[i];
                         i++;
                     }
+                    tokuda = Tokuda;
                 }
             }
             return tokuda;
@@ -120,6 +133,14 @@ namespace cpsc200assignment1
                 nextPos++;
             }
             return list;
+        }
+
+        public static void printList(int[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
         }
     }
 }

@@ -64,9 +64,8 @@ namespace cpsc200assignment1
 
         private int[] genDistinctArray()
         {
-            int i = 0;
             int[] list = new int[arraySize];
-            while (arraySize > i)
+            for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next(0,6);
             }
