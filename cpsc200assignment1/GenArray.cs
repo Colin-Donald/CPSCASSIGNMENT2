@@ -11,25 +11,23 @@ namespace cpsc200assignment1
         private Random r;
         private int arraySize;
         private ArrayType arrayType;
-        private int[] list;
         public GenArray()
         {
              r = new Random();
         }
 
-        public int[] genArray( int arraySize)
+        public int[] genArray(int arraySize)
         {
+            this.arraySize = arraySize;
             switch (arrayType)
             {
                 case ArrayType.normal:
                 {
-                    genArray();
-                    return list;
+                    return genArray();
                 }
                 case ArrayType.distinct:
                 {
-                    genDistinctArray();
-                    return list;
+                    return genDistinctArray();
                 }
             }
             return null;
@@ -38,42 +36,41 @@ namespace cpsc200assignment1
         public int[] genArray(ArrayType arrayType, int arraySize)
         {
             this.arraySize = arraySize;
+            this.arrayType = arrayType;
             switch (arrayType)
             {
                 case ArrayType.normal:
                 {
-                    genArray();
-                    return list;
+                    
+                    return genArray();
                 }
                 case ArrayType.distinct:
                 {
-                    genDistinctArray();
-                    return list;
+                    return genDistinctArray();
                 }
             }
             return null;
         }
 
-        private void genArray()
+        private int[] genArray()
         {
-            int i = 0;
             int[] list = new int[arraySize];
-            while(arraySize> i)
+            for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next();
             }
-            this.list = list;
+            return list;
         }
 
-        private void genDistinctArray()
+        private int[] genDistinctArray()
         {
             int i = 0;
             int[] list = new int[arraySize];
             while (arraySize > i)
             {
-                list[i] = r.Next(6);
+                list[i] = r.Next(0,6);
             }
-            this.list = list;
+            return list;
         }
     }
 }

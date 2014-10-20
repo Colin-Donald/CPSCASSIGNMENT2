@@ -34,6 +34,7 @@ namespace cpsc200assignment1
             IS = new InsertionSort();
             SS = new SelectionSort();
             SHS = new ShellSort();
+            FileIO = new FileIO();
         }
 
         public void sort(ExperimentParams e)

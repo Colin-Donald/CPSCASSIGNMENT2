@@ -23,13 +23,28 @@ namespace cpsc200assignment1
         {
             get { return SortType; }
         }
-
         private ArrayType aT;
         public ArrayType arrayType
         {
             get { return aT; }
         }
-
+        private GapType GapType;
+        public GapType gapType
+        {
+            get { return GapType; }
+        }
+        private long runtime;
+        public long runTime
+        {
+            get { return runtime; }
+            set { runtime = runTime; }
+        }
+        private int Memory;
+        public int memory
+        {
+            get { return Memory; }
+            set { Memory = memory; }
+        }
         private GenArray GenArray;
         private int[] List;
         public int[] list
@@ -41,18 +56,12 @@ namespace cpsc200assignment1
         {
             get { return GapSequence; }
         }
+
         public ExperimentParams()
         {
             ArraySize = 0;
             sD = SortDirection.normal;
             GenArray = new GenArray();
-        }
-
-        private long runtime;
-        public long runTime
-        {
-            get { return runTime; }
-            set { runtime = runTime; }
         }
 
         public void setParams(int arraySize)
@@ -61,11 +70,10 @@ namespace cpsc200assignment1
             List = GenArray.genArray(ArraySize);
         }
 
-
-
         public void setParams(GapType gapType)
         {
-            GapSequence = GapSeq.GapSequence(gapType);
+            this.GapType = gapType;
+            GapSequence = GapSeq.GapSequence(gapType,arraySize);
         }
 
         public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType )
@@ -83,7 +91,7 @@ namespace cpsc200assignment1
             sD = sortDirection;
             SortType = sorts;
             aT = arrayType;
-            GapSequence = GapSeq.GapSequence(gapType);
+            GapSequence = GapSeq.GapSequence(gapType,arraySize);
             List = GenArray.genArray(ArraySize);
         }
     }

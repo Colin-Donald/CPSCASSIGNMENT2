@@ -36,7 +36,7 @@ namespace cpsc200assignment1
         {
             int arraySize = 5000;
             ep.setParams(arraySize,SortDirection.normal,Sorts.selectionSort, ArrayType.normal);
-            while(arraySize<150000)
+            while(arraySize < 150000)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -45,6 +45,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            sf.fileIO.printResults();
         }
 
         public void runExperiment2()
@@ -74,6 +75,7 @@ namespace cpsc200assignment1
                     sf.sort(ep);
                 }
                 arraySize += 5000;
+                sf.fileIO.printResults();
             }
         }
 
@@ -189,7 +191,7 @@ namespace cpsc200assignment1
                         }
                         case 1:
                         {
-                            ep.setParams(GapType.pratt);
+                            ep.setParams(GapType.hibbard);
                             for (int i = 0; i < 10; i++)
                             {
                                 ep.setParams(arraySize);
