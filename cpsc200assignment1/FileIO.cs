@@ -12,15 +12,19 @@ namespace cpsc200assignment1
         private String[] result;
         private String FilePath;
         private String fileName;
+        private String fileType;
         private String delimiter;
         private StringBuilder sB;
+        private int experimentNumber;
 
         public FileIO()
         {
             ep = new List<ExperimentParams>();
             this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            this.fileName = @"\experimental_results.csv";
+            this.fileName = @"\experimental_results";
+            this.fileType = ".csv";
             this.delimiter = ",";
+            this.experimentNumber = 1;
             sB = new StringBuilder();
         }
 
@@ -54,7 +58,8 @@ namespace cpsc200assignment1
                 i++;
             }
 
-            System.IO.File.WriteAllLines(FilePath + fileName,result);
+            System.IO.File.WriteAllLines(FilePath + fileName + experimentNumber + fileType, result);
+            experimentNumber++;
             
         }
 

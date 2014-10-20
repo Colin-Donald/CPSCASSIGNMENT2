@@ -18,6 +18,23 @@ namespace cpsc200assignment1
 
         public void sort(ExperimentParams e)
         {
+            switch (e.sortDirection)
+            {
+                case SortDirection.normal:
+                {
+                    sortNormal(e);
+                    break;
+                }
+                case SortDirection.reverse:
+                {
+                    sortReverse(e);
+                    break;
+                }
+            }
+        }
+
+        private void sortNormal(ExperimentParams e)
+        {
             list = e.list;
             sW = Stopwatch.StartNew();
      
@@ -28,7 +45,35 @@ namespace cpsc200assignment1
                 int minElement = nextPos;
                 for(int i = nextPos + 1; i < listSize; i++)
                 {
-                    if(list[i] < list[minElement])
+                    if(list[i] <  list[minElement])
+                    {
+                        minElement = i;
+                    }
+                }
+                int temp = list[minElement];
+                list[minElement] = list[nextPos];
+                list[nextPos] = temp;
+                nextPos++;
+            }
+            sW.Stop();
+            e.runTime = sW.ElapsedMilliseconds;
+            Console.WriteLine(e.runTime);
+            sW.Reset();
+        }
+
+        private void sortReverse(ExperimentParams e)
+        {
+            list = e.list;
+            sW = Stopwatch.StartNew();
+
+            int listSize = list.Length;
+            int nextPos = 0;
+            while (nextPos < listSize)
+            {
+                int minElement = nextPos;
+                for (int i = nextPos + 1; i < listSize; i++)
+                {
+                    if (list[i] > list[minElement])
                     {
                         minElement = i;
                     }

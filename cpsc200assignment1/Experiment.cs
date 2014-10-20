@@ -61,7 +61,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment3()
@@ -77,7 +76,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment4()
@@ -93,7 +91,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment5()
@@ -109,7 +106,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment6()
@@ -125,13 +121,12 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment7()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -141,13 +136,12 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment8()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.reverse, Sorts.shellSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.reverse, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -157,13 +151,12 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment9()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.distinct);
+            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.distinct, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -173,7 +166,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
 
         public void runExperiment10()
@@ -201,7 +193,6 @@ namespace cpsc200assignment1
                             {
                                 
                                 ep.setParams(arraySize, GapType.hibbard);
-                                Console.WriteLine("u");
                                 sf.sort(ep);
                                 
                             }
@@ -222,7 +213,6 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
         }
     }
 }
