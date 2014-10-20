@@ -8,16 +8,27 @@ namespace cpsc200assignment1
 {
     class FileIO
     {
-        private List<ExperimentParams> ep = new List<ExperimentParams>();
+        private List<ExperimentParams> ep;
+        private String FilePath;
+        private String delimiter;
+        private StringBuilder sB;
 
         public FileIO()
         {
-
+            ep = new List<ExperimentParams>();
+            this.FilePath = "C:\test.csv";
+            this.delimiter = ",";
+            sB = new StringBuilder();
         }
 
         public void results(ExperimentParams e)
         {
             ep.Add(e);
+        }
+
+        public void printResults()
+        {
+
         }
 
     }

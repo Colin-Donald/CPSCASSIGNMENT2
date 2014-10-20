@@ -29,6 +29,7 @@ namespace cpsc200assignment1
             runExperiment8();
             runExperiment9();
             runExperiment10();
+            sf.fileIO.printResults();
         }
 
         public void runExperiment1()

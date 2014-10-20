@@ -32,7 +32,7 @@ namespace cpsc200assignment1
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
             sW.Reset();
-            printList(e.list);
+            //printList(e.list);
         }
 
         public void printList(int[] list)
