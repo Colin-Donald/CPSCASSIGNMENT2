@@ -10,10 +10,12 @@ namespace cpsc200assignment1
     {
         private ExperimentParams ep;
         private SortFacade sf;
+        private FileIO FileIO;
         public Experiment()
         {
             ep = new ExperimentParams();
             sf = new SortFacade();
+            FileIO = new FileIO();
         }
        
 
@@ -29,23 +31,23 @@ namespace cpsc200assignment1
             runExperiment8();
             runExperiment9();
             runExperiment10();
-            sf.fileIO.printResults();
         }
 
         public void runExperiment1()
         {
             int arraySize = 5000;
             ep.setParams(arraySize,SortDirection.normal,Sorts.selectionSort, ArrayType.normal);
-            while(arraySize < 150000)
+            while(arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
-            sf.fileIO.printResults();
+            FileIO.printResults();
         }
 
         public void runExperiment2()
@@ -58,6 +60,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -73,6 +76,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -88,6 +92,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -103,6 +108,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -118,6 +124,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -133,6 +140,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -148,6 +156,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -163,6 +172,7 @@ namespace cpsc200assignment1
                 {
                     ep.setParams(arraySize);
                     sf.sort(ep);
+                    FileIO.results(ep);
                 }
                 arraySize += 5000;
             }
@@ -184,6 +194,7 @@ namespace cpsc200assignment1
                             {
                                 ep.setParams(arraySize, GapType.knuth);
                                 sf.sort(ep);
+                                FileIO.results(ep);
                             }
                             break;
                         }
@@ -194,7 +205,7 @@ namespace cpsc200assignment1
                                 
                                 ep.setParams(arraySize, GapType.hibbard);
                                 sf.sort(ep);
-                                
+                                FileIO.results(ep);
                             }
                             break;
                         }
@@ -204,6 +215,7 @@ namespace cpsc200assignment1
                             {
                                 ep.setParams(arraySize, GapType.tokuda);
                                 sf.sort(ep);
+                                FileIO.results(ep);
                             }
                             break;
                         }

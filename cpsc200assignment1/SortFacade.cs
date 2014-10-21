@@ -23,18 +23,12 @@ namespace cpsc200assignment1
         {
             get { return SHS; }
         }
-        private FileIO FileIO;
-        public FileIO fileIO
-        {
-            get { return FileIO; }
-        }
 
         public SortFacade()
         {
             IS = new InsertionSort();
             SS = new SelectionSort();
             SHS = new ShellSort();
-            FileIO = new FileIO();
         }
 
         public void sort(ExperimentParams e)
@@ -46,21 +40,18 @@ namespace cpsc200assignment1
                 {
                     Sort jSort = (Sort)iS;
                     jSort.sort(e);
-                    FileIO.results(e);
                     break;
                 }
                 case Sorts.selectionSort:
                 {
                     Sort kSort = (Sort)sS;
                     kSort.sort(e);
-                    FileIO.results(e);
                     break;
                 }
                 case Sorts.shellSort:
                 {
                     Sort lSort = (Sort)shS;
                     lSort.sort(e);
-                    FileIO.results(e);
                     break;
                 }
                 default :

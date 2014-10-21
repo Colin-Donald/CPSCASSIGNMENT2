@@ -8,7 +8,7 @@ namespace cpsc200assignment1
 {
     class FileIO
     {
-        private List<ExperimentParams> ep;
+        private List<String> ep;
         private String[] result;
         private String FilePath;
         private String fileName;
@@ -19,7 +19,7 @@ namespace cpsc200assignment1
 
         public FileIO()
         {
-            ep = new List<ExperimentParams>();
+            ep = new List<String>();
             this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             this.fileName = @"\experimental_results";
             this.fileType = ".csv";
@@ -30,37 +30,34 @@ namespace cpsc200assignment1
 
         public void results(ExperimentParams e)
         {
-            ExperimentParams copy = e;
-            ep.Add(copy);
+            sB.Append(e.sortType.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.sortDirection.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.arrayType.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.gapType.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.arraySize.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.memory.ToString());
+            sB.Append(delimiter);
+            sB.Append(e.runTime.ToString());
+            sB.Append(delimiter);
+            sB.Append("\n");
+            ep.Add(sB.ToString());
         }
 
         public void printResults()
         {
             int i = 0;
-            result = new string[ep.Count];
-            foreach (ExperimentParams e in ep)
+            result = new String[ep.Count];
+            foreach (String s in ep)
             {
-                sB.Append(e.sortType.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.sortDirection.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.arrayType.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.gapType.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.arraySize.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.memory.ToString());
-                sB.Append(delimiter);
-                sB.Append(e.runTime.ToString());
-                sB.Append(delimiter);
-                result[i]= sB.ToString();
-                i++;
+                result[i] = s;
             }
-
             System.IO.File.WriteAllLines(FilePath + fileName + experimentNumber + fileType, result);
             experimentNumber++;
-            
         }
 
     }
