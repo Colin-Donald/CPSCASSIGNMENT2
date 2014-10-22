@@ -33,6 +33,11 @@ namespace cpsc200assignment1
         {
             get { return GapType; }
         }
+        private ExperimentType ET = ExperimentType.normal;
+        public ExperimentType et
+        {
+            get { return ET; }
+        }
         private long runtime;
         public long runTime
         {
@@ -50,6 +55,7 @@ namespace cpsc200assignment1
         public int[] list
         {
             get{ return List; }
+            set { List = value; }
         }
         private int[] GapSequence;
         public int[] gapSequence

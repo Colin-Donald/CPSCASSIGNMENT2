@@ -9,6 +9,10 @@ namespace cpsc200assignment1
 {
     class InsertionSort : Sort
     {
+        private int[] list;
+        private Stopwatch sW;
+        private long mem1;
+        private long mem2;
         public InsertionSort()
         {
             
@@ -33,44 +37,54 @@ namespace cpsc200assignment1
 
         private void sortNormal(ExperimentParams e)
         {
-            Stopwatch sW = Stopwatch.StartNew();
-            int listSize = e.list.Length;
+            list = e.list;
+            sW = Stopwatch.StartNew();
+            mem1 = GC.GetTotalMemory(false);
+            int listSize = list.Length;
             for(int i = 1; i < listSize; i++)
             {
-                int val = e.list[i];
+                int val = list[i];
                 int j = i;
-                while (j > 0 && e.list[j - 1] > val)
+                while (j > 0 && list[j - 1] > val)
                 {
-                    e.list[j] = e.list[j - 1];
+                    list[j] = list[j - 1];
                     j--;
                 }
-                e.list[j] = val;
+                list[j] = val;
             }
             sW.Stop();
+            mem2 = GC.GetTotalMemory(false);
+            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
             Console.WriteLine(e.runTime);
             sW.Reset();
+            //e.list = list;
         }
 
         private void sortReverse(ExperimentParams e)
         {
-            Stopwatch sW = Stopwatch.StartNew();
-            int listSize = e.list.Length;
+            list = e.list;
+            sW = Stopwatch.StartNew();
+            mem1 = GC.GetTotalMemory(false);
+            int listSize = list.Length;
             for (int i = 1; i < listSize; i++)
             {
-                int val = e.list[i];
+                int val = list[i];
                 int j = i;
-                while (j > 0 && e.list[j - 1] < val)
+                while (j > 0 && list[j - 1] < val)
                 {
-                    e.list[j] = e.list[j - 1];
+                    list[j] = list[j - 1];
                     j--;
                 }
-                e.list[j] = val;
+                list[j] = val;
             }
             sW.Stop();
+            mem2 = GC.GetTotalMemory(false);
+            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
             Console.WriteLine(e.runTime);
             sW.Reset();
+            //e.list = list;
         }
     }
 }

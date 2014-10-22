@@ -10,6 +10,7 @@ namespace cpsc200assignment1
     public enum GapType {knuth, hibbard, tokuda }
     public enum SortDirection { normal , reverse}
     public enum ArrayType { normal, distinct}
+    public enum ExperimentType { normal, custom}
     class Program
     {
         public Program()

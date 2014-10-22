@@ -7,13 +7,11 @@ using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
-    class SelectionSort : Sort
+    class TestSelectionSort
     {
-        private Stopwatch sW;
-        private int[] list;
-        private long mem1;
-        private long mem2;
-        public SelectionSort()
+         private Stopwatch sW;
+         private int[] list;
+         public TestSelectionSort()
         {
             
         }
@@ -39,7 +37,6 @@ namespace cpsc200assignment1
         {
             list = e.list;
             sW = Stopwatch.StartNew();
-            mem1 = GC.GetTotalMemory(false);
             int listSize = list.Length;
             int nextPos = 0;
             while(nextPos < listSize)
@@ -58,8 +55,6 @@ namespace cpsc200assignment1
                 nextPos++;
             }
             sW.Stop();
-            mem2 = GC.GetTotalMemory(false);
-            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
             Console.WriteLine(e.runTime);
             sW.Reset();
@@ -70,7 +65,6 @@ namespace cpsc200assignment1
         {
             list = e.list;
             sW = Stopwatch.StartNew();
-            mem1 = GC.GetTotalMemory(false);
             int listSize = list.Length;
             int nextPos = 0;
             while (nextPos < listSize)
@@ -89,8 +83,6 @@ namespace cpsc200assignment1
                 nextPos++;
             }
             sW.Stop();
-            mem2 = GC.GetTotalMemory(false);
-            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
             Console.WriteLine(e.runTime);
             sW.Reset();

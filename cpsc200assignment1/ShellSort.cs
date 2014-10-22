@@ -9,6 +9,11 @@ namespace cpsc200assignment1
 {
     class ShellSort : Sort
     {
+        private int[] list;
+        private int[] gapSequence;
+        private Stopwatch sW;
+        private long mem1;
+        private long mem2;
         public ShellSort()
         {
 
@@ -33,50 +38,56 @@ namespace cpsc200assignment1
 
         private void sortNormal(ExperimentParams e)
         {
-            Stopwatch sW = Stopwatch.StartNew();
-            int listSize = e.list.Length;
-            foreach(int gap in e.gapSequence)
+            list = e.list;
+            gapSequence = e.gapSequence;
+            sW = Stopwatch.StartNew();
+            int listSize = list.Length;
+            foreach(int gap in gapSequence)
             {
                 for (int i = 1; i < listSize; i++)
                 {
-                    int val = e.list[i];
+                    int val = list[i];
                     int j = i - gap;
-                    while (j > 0 && e.list[j - 1] > val)
+                    while (j > 0 && list[j - 1] > val)
                     {
-                        e.list[j] = e.list[j - 1];
+                        list[j] = list[j - 1];
                         j -= gap;
                     }
-                    e.list[j + gap] = val;
+                    list[j + gap] = val;
                 }
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
             //Console.WriteLine(e.runTime);
             sW.Reset();
+            //e.list = list;
         }
 
         private void sortReverse(ExperimentParams e)
         {
-            Stopwatch sW = Stopwatch.StartNew();
-            int listSize = e.list.Length;
-            foreach (int gap in e.gapSequence)
+            list = e.list;
+            gapSequence = e.gapSequence;
+            sW = Stopwatch.StartNew();
+            int listSize = list.Length;
+            foreach (int gap in gapSequence)
             {
                 for (int i = 1; i < listSize; i++)
                 {
-                    int val = e.list[i];
+                    int val = list[i];
                     int j = i - gap;
-                    while (j > 0 && e.list[j - 1] < val)
+                    while (j > 0 && list[j - 1] < val)
                     {
-                        e.list[j] = e.list[j - 1];
+                        list[j] = list[j - 1];
                         j -= gap;
                     }
-                    e.list[j + gap] = val;
+                    list[j + gap] = val;
                 }
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
             //Console.WriteLine(e.runTime);
             sW.Reset();
+            //e.list = list;
         }
 
         public void printList(int[] list)

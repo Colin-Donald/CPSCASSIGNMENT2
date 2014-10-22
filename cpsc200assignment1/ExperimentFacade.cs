@@ -9,6 +9,7 @@ namespace cpsc200assignment1
     class ExperimentFacade
     {
         private Experiment e;
+        private CustomExperiment cE;
         public ExperimentFacade()
         {
             e = new Experiment();
@@ -18,6 +19,7 @@ namespace cpsc200assignment1
         {
             Console.WriteLine("1. experiments");
             Console.WriteLine("2. Unit tests");
+            Console.WriteLine("3. custom experiment");
             int i = int.Parse(Console.ReadLine());
             switch (i)
             {
@@ -29,6 +31,11 @@ namespace cpsc200assignment1
                 case 2:
                     {
                         unitTests();
+                        break;
+                    }
+                case 3:
+                    {
+                        cE.customExperiment();
                         break;
                     }
                 default:

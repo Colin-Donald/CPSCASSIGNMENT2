@@ -64,6 +64,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment3()
@@ -80,6 +81,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment4()
@@ -96,6 +98,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment5()
@@ -112,6 +115,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment6()
@@ -128,6 +132,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment7()
@@ -144,6 +149,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment8()
@@ -160,6 +166,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment9()
@@ -176,13 +183,14 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
 
         public void runExperiment10()
         {
-            int arraySize = 5000;
+            int arraySize = 10000;
             ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.normal);
-            while (arraySize <= 150000)
+            while (arraySize <= 1000000)
             {
                 for (int j = 0; j < 3; j++)
                 {
@@ -225,6 +233,7 @@ namespace cpsc200assignment1
                 }
                 arraySize += 5000;
             }
+            FileIO.printResults();
         }
     }
 }
