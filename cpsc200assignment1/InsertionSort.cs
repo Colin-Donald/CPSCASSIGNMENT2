@@ -20,12 +20,12 @@ namespace cpsc200assignment1
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                     {
                         sortNormal(e);
                         break;
                     }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                     {
                         sortReverse(e);
                         break;
@@ -80,36 +80,35 @@ namespace cpsc200assignment1
             sortCheck(list, e);
             Console.WriteLine(e.arrayCheck);
         }
-        private void sortCheck(int[] list, ExperimentParams e)
+         private void sortCheck(int[] list, ExperimentParams e)
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
+                {
+                    for (int i = 0; i < list.Length - 1; i++)
                     {
-                        for (int i = 0; i < list.Length - 1; i++)
+                        if (list[i] > list[i + 1])
                         {
-                            if (list[i] > list[i + 1])
-                            {
-                                e.arrayCheck = false;
-                                break;
-                            }
+                            e.arrayCheck = false;
+                            break;
                         }
-                        break;
                     }
-                case SortDirection.reverse:
+                    break;
+                }
+                case SortDirection.descending:
+                {
+                    for (int i = 0; i < list.Length - 1; i++)
                     {
-                        for (int i = 0; i < list.Length - 1; i++)
+                        if (list[i] < list[i + 1])
                         {
-                            if (list[i] < list[i + 1])
-                            {
-                                e.arrayCheck = false;
-                                break;
-                            }
+                            e.arrayCheck = false;
+                            break;
                         }
-                        break;
                     }
+                    break;
+                }
             }
-
         }
     }
 }

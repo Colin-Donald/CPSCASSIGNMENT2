@@ -25,7 +25,7 @@ namespace cpsc200assignment1
                     sortNormal(e);
                     break;
                 }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                 {
                     sortReverse(e);
                     break;

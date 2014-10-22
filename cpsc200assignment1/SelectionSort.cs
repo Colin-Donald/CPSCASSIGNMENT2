@@ -11,6 +11,7 @@ namespace cpsc200assignment1
     {
         private Stopwatch sW;
         private int[] list;
+        private int mem;
         public SelectionSort()
         {
             
@@ -20,12 +21,12 @@ namespace cpsc200assignment1
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                 {
                     sortNormal(e);
                     break;
                 }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                 {
                     sortReverse(e);
                     break;
@@ -47,12 +48,18 @@ namespace cpsc200assignment1
                     if(list[i] <  list[minElement])
                     {
                         minElement = i;
+                        mem += 32;
                     }
                 }
+                mem -= 32;
                 int temp = list[minElement];
+                mem += 32;
                 list[minElement] = list[nextPos];
+                mem += 32;
                 list[nextPos] = temp;
+                mem += 32;
                 nextPos++;
+                mem -= 96;
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
@@ -95,7 +102,7 @@ namespace cpsc200assignment1
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                     {
                         for (int i = 0; i < list.Length - 1; i++)
                         {
@@ -107,7 +114,7 @@ namespace cpsc200assignment1
                         }
                         break;
                     }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                     {
                         for (int i = 0; i < list.Length - 1; i++)
                         {

@@ -67,7 +67,7 @@ namespace cpsc200assignment1
         public ExperimentParams()
         {
             ArraySize = 0;
-            sD = SortDirection.normal;
+            sD = SortDirection.ascending;
             GenArray = new GenArray();
         }
 
@@ -85,19 +85,19 @@ namespace cpsc200assignment1
             List = GenArray.genArray(ArraySize);
         }
 
-        public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType )
+        public void setParams(int arraySize, SortDirection arrayDirection, Sorts sorts, ArrayType arrayType )
         {
             ArraySize = arraySize;
-            sD = sortDirection;
+            sD = arrayDirection;
             SortType = sorts;
             aT = arrayType;
             List = GenArray.genArray(arrayType, ArraySize);
         }
 
-        public void setParams(int arraySize, SortDirection sortDirection, Sorts sorts, ArrayType arrayType , GapType gapType)
+        public void setParams(int arraySize, SortDirection arrayDirection, Sorts sorts, ArrayType arrayType , GapType gapType)
         {
             ArraySize = arraySize;
-            sD = sortDirection;
+            sD = arrayDirection;
             SortType = sorts;
             aT = arrayType;
             GapSequence = GapSeq.GapSequence(gapType,arraySize);

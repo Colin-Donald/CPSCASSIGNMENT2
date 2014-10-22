@@ -50,32 +50,10 @@ namespace cpsc200assignment1
                     break;
                 }
             }
-            Console.WriteLine("1. normal sort direction");
-            Console.WriteLine("2. reversed sort direction");
-            i = int.Parse(Console.ReadLine());
-            switch (i)
-            {
-                case 1:
-                {
-                    sD = SortDirection.normal;
-                    break;
-                }
-                case 2:
-                {
-                    sD = SortDirection.reverse;
-                    break;
-                }
-                default:
-                {
-                    Console.WriteLine("invalid input try again");
-                    customExperiment();
-                    break;
-                }
-            }
-            Console.WriteLine("please enter array size");
-            arraySize = int.Parse(Console.ReadLine());
+          
             Console.WriteLine("1. normal array");
-            Console.WriteLine("2. distinct array");
+            Console.WriteLine("2. reverse array");
+            Console.WriteLine("3. distinct array");
             i = int.Parse(Console.ReadLine());
             switch (i)
             {
@@ -85,6 +63,11 @@ namespace cpsc200assignment1
                         break;
                     }
                 case 2:
+                    {
+                        aT = ArrayType.reverse;
+                        break;
+                    }
+                case 3:
                     {
                         aT = ArrayType.distinct;
                         break;
@@ -135,7 +118,7 @@ namespace cpsc200assignment1
 
         private void runexperiment()
         {
-            ep.setParams(arraySize, sD, sortType, aT, gapType);
+            ep.setParams(arraySize, SortDirection.ascending, sortType, aT, gapType);
             sf.sort(ep);
             Console.WriteLine(ep.runTime);
             Console.WriteLine(ep.memory);

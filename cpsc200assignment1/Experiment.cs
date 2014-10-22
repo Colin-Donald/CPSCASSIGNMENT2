@@ -36,7 +36,7 @@ namespace cpsc200assignment1
         public void runExperiment1()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize,SortDirection.normal,Sorts.selectionSort, ArrayType.normal);
+            ep.setParams(arraySize,SortDirection.ascending,Sorts.selectionSort,ArrayType.normal);
             while(arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -53,7 +53,7 @@ namespace cpsc200assignment1
         public void runExperiment2()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.reverse, Sorts.selectionSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.selectionSort, ArrayType.reverse);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -70,7 +70,7 @@ namespace cpsc200assignment1
         public void runExperiment3()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.selectionSort, ArrayType.distinct);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.selectionSort, ArrayType.distinct);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -87,7 +87,7 @@ namespace cpsc200assignment1
         public void runExperiment4()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.insertionSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.insertionSort, ArrayType.normal);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -104,7 +104,7 @@ namespace cpsc200assignment1
         public void runExperiment5()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.reverse, Sorts.insertionSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.insertionSort, ArrayType.reverse);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -121,7 +121,7 @@ namespace cpsc200assignment1
         public void runExperiment6()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.insertionSort, ArrayType.distinct);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.insertionSort, ArrayType.distinct);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -138,7 +138,7 @@ namespace cpsc200assignment1
         public void runExperiment7()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -155,7 +155,7 @@ namespace cpsc200assignment1
         public void runExperiment8()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.reverse, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.reverse, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -172,7 +172,7 @@ namespace cpsc200assignment1
         public void runExperiment9()
         {
             int arraySize = 5000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.distinct, GapType.hibbard);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.distinct, GapType.hibbard);
             while (arraySize <= 150000)
             {
                 for (int i = 0; i < 10; i++)
@@ -189,7 +189,7 @@ namespace cpsc200assignment1
         public void runExperiment10()
         {
             int arraySize = 10000;
-            ep.setParams(arraySize, SortDirection.normal, Sorts.shellSort, ArrayType.normal);
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.normal);
             while (arraySize <= 1000000)
             {
                 for (int j = 0; j < 3; j++)

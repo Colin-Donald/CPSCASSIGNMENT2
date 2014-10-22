@@ -21,12 +21,12 @@ namespace cpsc200assignment1
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                     {
                         sortNormal(e);
                         break;
                     }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                     {
                         sortReverse(e);
                         break;
@@ -92,7 +92,7 @@ namespace cpsc200assignment1
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                 {
                     for (int i = 0; i < list.Length - 1; i++)
                     {
@@ -104,7 +104,7 @@ namespace cpsc200assignment1
                     }
                     break;
                 }
-                case SortDirection.reverse:
+                case SortDirection.descending:
                 {
                     for (int i = 0; i < list.Length - 1; i++)
                     {
