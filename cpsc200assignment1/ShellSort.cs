@@ -12,8 +12,6 @@ namespace cpsc200assignment1
         private int[] list;
         private int[] gapSequence;
         private Stopwatch sW;
-        private long mem1;
-        private long mem2;
         public ShellSort()
         {
 
@@ -44,13 +42,13 @@ namespace cpsc200assignment1
             int listSize = list.Length;
             foreach(int gap in gapSequence)
             {
-                for (int i = 1; i < listSize; i++)
+                for (int i = gap; i < listSize; i++)
                 {
                     int val = list[i];
                     int j = i - gap;
-                    while (j > 0 && list[j - 1] > val)
+                    while (j >= 0 && list[j] > val)
                     {
-                        list[j] = list[j - 1];
+                        list[j + gap] = list[j];
                         j -= gap;
                     }
                     list[j + gap] = val;
@@ -58,9 +56,9 @@ namespace cpsc200assignment1
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
-            //Console.WriteLine(e.runTime);
             sW.Reset();
-            //e.list = list;
+            sortCheck(list, e);
+            Console.WriteLine(e.arrayCheck);
         }
 
         private void sortReverse(ExperimentParams e)
@@ -71,13 +69,13 @@ namespace cpsc200assignment1
             int listSize = list.Length;
             foreach (int gap in gapSequence)
             {
-                for (int i = 1; i < listSize; i++)
+                for (int i = gap; i < listSize; i++)
                 {
                     int val = list[i];
                     int j = i - gap;
-                    while (j > 0 && list[j - 1] < val)
+                    while (j >= 0 && list[j] < val)
                     {
-                        list[j] = list[j - 1];
+                        list[j + gap] = list[j];
                         j -= gap;
                     }
                     list[j + gap] = val;
@@ -85,17 +83,42 @@ namespace cpsc200assignment1
             }
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
-            //Console.WriteLine(e.runTime);
             sW.Reset();
-            //e.list = list;
+            sortCheck(list, e);
+            Console.WriteLine(e.arrayCheck);
         }
 
-        public void printList(int[] list)
+        private void sortCheck(int[] list, ExperimentParams e)
         {
-            for (int i = 0; i < list.Length; i++)
+            switch (e.sortDirection)
             {
-                Console.WriteLine(list[i]);
+                case SortDirection.normal:
+                {
+                    for (int i = 0; i < list.Length - 1; i++)
+                    {
+                        if (list[i] > list[i + 1])
+                        {
+                            e.arrayCheck = false;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case SortDirection.reverse:
+                {
+                    for (int i = 0; i < list.Length - 1; i++)
+                    {
+                        if (list[i] < list[i + 1])
+                        {
+                            e.arrayCheck = false;
+                            break;
+                        }
+                    }
+                    break;
+                }
             }
+            
         }
+
     }
 }

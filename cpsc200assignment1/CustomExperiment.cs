@@ -18,6 +18,7 @@ namespace cpsc200assignment1
         public CustomExperiment()
         {
             ep = new ExperimentParams();
+            sf = new SortFacade();
         }
 
         public void customExperiment()
@@ -73,8 +74,8 @@ namespace cpsc200assignment1
             }
             Console.WriteLine("please enter array size");
             arraySize = int.Parse(Console.ReadLine());
-            Console.WriteLine("1. normal");
-            Console.WriteLine("2. reverse");
+            Console.WriteLine("1. normal array");
+            Console.WriteLine("2. distinct array");
             i = int.Parse(Console.ReadLine());
             switch (i)
             {
@@ -95,7 +96,7 @@ namespace cpsc200assignment1
                         break;
                     }
             }
-            
+            runexperiment();
 
         }
 
@@ -138,7 +139,7 @@ namespace cpsc200assignment1
             sf.sort(ep);
             Console.WriteLine(ep.runTime);
             Console.WriteLine(ep.memory);
-
+            Console.WriteLine(ep.arrayCheck);
         }
     }
 }

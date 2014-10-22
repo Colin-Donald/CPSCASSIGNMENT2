@@ -13,6 +13,7 @@ namespace cpsc200assignment1
         public ExperimentFacade()
         {
             e = new Experiment();
+            cE = new CustomExperiment();
         }
 
         public void experimentUI()
@@ -44,6 +45,7 @@ namespace cpsc200assignment1
                         break;
                     }
             }
+            while (true) { }
 
         }
 

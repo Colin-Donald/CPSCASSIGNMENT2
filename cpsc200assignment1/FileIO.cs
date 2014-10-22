@@ -40,6 +40,8 @@ namespace cpsc200assignment1
             sB.Append(delimiter);
             sB.Append(e.arraySize.ToString());
             sB.Append(delimiter);
+            sB.Append(e.arrayCheck);
+            sB.Append(delimiter);
             sB.Append(e.memory.ToString());
             sB.Append(delimiter);
             sB.Append(e.runTime.ToString());

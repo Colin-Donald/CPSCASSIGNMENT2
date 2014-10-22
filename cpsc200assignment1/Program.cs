@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace cpsc200assignment1
 {
@@ -10,18 +11,12 @@ namespace cpsc200assignment1
     public enum GapType {knuth, hibbard, tokuda }
     public enum SortDirection { normal , reverse}
     public enum ArrayType { normal, distinct}
-    public enum ExperimentType { normal, custom}
     class Program
     {
-        public Program()
-        {
-
-        }
-
         static void Main(string[] args)
         {
             ExperimentFacade e = new ExperimentFacade();
             e.experimentUI();
-        }       
+        }
     }
 }

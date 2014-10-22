@@ -33,10 +33,11 @@ namespace cpsc200assignment1
         {
             get { return GapType; }
         }
-        private ExperimentType ET = ExperimentType.normal;
-        public ExperimentType et
+        private bool ArrayCheck = true;
+        public bool arrayCheck
         {
-            get { return ET; }
+            get { return ArrayCheck; }
+            set { ArrayCheck = value; }
         }
         private long runtime;
         public long runTime

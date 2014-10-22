@@ -11,8 +11,6 @@ namespace cpsc200assignment1
     {
         private int[] list;
         private Stopwatch sW;
-        private long mem1;
-        private long mem2;
         public InsertionSort()
         {
             
@@ -39,7 +37,6 @@ namespace cpsc200assignment1
         {
             list = e.list;
             sW = Stopwatch.StartNew();
-            mem1 = GC.GetTotalMemory(false);
             int listSize = list.Length;
             for(int i = 1; i < listSize; i++)
             {
@@ -53,19 +50,17 @@ namespace cpsc200assignment1
                 list[j] = val;
             }
             sW.Stop();
-            mem2 = GC.GetTotalMemory(false);
-            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
-            Console.WriteLine(e.runTime);
+            //Console.WriteLine(e.runTime);
             sW.Reset();
-            //e.list = list;
+            sortCheck(list, e);
+            Console.WriteLine(e.arrayCheck);
         }
 
         private void sortReverse(ExperimentParams e)
         {
             list = e.list;
             sW = Stopwatch.StartNew();
-            mem1 = GC.GetTotalMemory(false);
             int listSize = list.Length;
             for (int i = 1; i < listSize; i++)
             {
@@ -79,12 +74,42 @@ namespace cpsc200assignment1
                 list[j] = val;
             }
             sW.Stop();
-            mem2 = GC.GetTotalMemory(false);
-            e.memory = (int)(mem2 - mem1);
             e.runTime = sW.ElapsedMilliseconds;
-            Console.WriteLine(e.runTime);
+            //Console.WriteLine(e.runTime);
             sW.Reset();
-            //e.list = list;
+            sortCheck(list, e);
+            Console.WriteLine(e.arrayCheck);
+        }
+        private void sortCheck(int[] list, ExperimentParams e)
+        {
+            switch (e.sortDirection)
+            {
+                case SortDirection.normal:
+                    {
+                        for (int i = 0; i < list.Length - 1; i++)
+                        {
+                            if (list[i] > list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                case SortDirection.reverse:
+                    {
+                        for (int i = 0; i < list.Length - 1; i++)
+                        {
+                            if (list[i] < list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+            }
+
         }
     }
 }
