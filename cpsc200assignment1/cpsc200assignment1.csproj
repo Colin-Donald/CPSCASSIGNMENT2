@@ -71,6 +71,7 @@
     <Compile Include="ShellSort.cs" />
     <Compile Include="SortFacade.cs" />
     <Compile Include="TestExperimentParams.cs" />
+    <Compile Include="TestGenArray.cs" />
     <Compile Include="TestInsertionSort.cs" />
     <Compile Include="TestSelectionSort.cs" />
     <Compile Include="TestShellSort.cs" />
