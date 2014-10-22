@@ -79,6 +79,8 @@ namespace cpsc200assignment1
                         break;
                     }
             }
+            Console.WriteLine("Please enter array size");
+            arraySize = int.Parse(Console.ReadLine());
             runexperiment();
 
         }

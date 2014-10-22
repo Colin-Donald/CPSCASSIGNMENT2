@@ -25,12 +25,39 @@ namespace cpsc200assignment1
                 {
                     return genArray();
                 }
+                case ArrayType.reverse:
+                {
+
+                    return genReverseArray(genArray());
+                }
                 case ArrayType.distinct:
                 {
                     return genDistinctArray();
                 }
             }
             return null;
+        }
+
+        private int[] genReverseArray(int[] list)
+        {
+            int listSize = list.Length;
+            int nextPos = 0;
+            while(nextPos < listSize)
+            {
+                int minElement = nextPos;
+                for(int i = nextPos + 1; i < listSize; i++)
+                {
+                    if(list[i] <  list[minElement])
+                    {
+                        minElement = i;
+                    }
+                }
+                int temp = list[minElement];
+                list[minElement] = list[nextPos];
+                list[nextPos] = temp;
+                nextPos++;
+            }
+            return list;
         }
 
         public int[] genArray(ArrayType arrayType, int arraySize)
@@ -71,5 +98,7 @@ namespace cpsc200assignment1
             }
             return list;
         }
+
+
     }
 }

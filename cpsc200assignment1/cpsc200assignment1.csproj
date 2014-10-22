@@ -70,7 +70,12 @@
     <Compile Include="SelectionSort.cs" />
     <Compile Include="ShellSort.cs" />
     <Compile Include="SortFacade.cs" />
+    <Compile Include="TestExperimentParams.cs" />
+    <Compile Include="TestInsertionSort.cs" />
     <Compile Include="TestSelectionSort.cs" />
+    <Compile Include="TestShellSort.cs" />
+    <Compile Include="TestSort.cs" />
+    <Compile Include="TestSortFacade.cs" />
     <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>

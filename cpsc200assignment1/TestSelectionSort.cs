@@ -7,20 +7,19 @@ using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
-    class TestSelectionSort
+    class TestSelectionSort : TestSort
     {
-         private Stopwatch sW;
          private int[] list;
          public TestSelectionSort()
         {
             
         }
 
-        public void sort(ExperimentParams e)
+        public void sort(TestExperimentParams e)
         {
             switch (e.sortDirection)
             {
-                case SortDirection.normal:
+                case SortDirection.ascending:
                 {
                     sortNormal(e);
                     break;
@@ -33,18 +32,17 @@ namespace cpsc200assignment1
             }
         }
 
-        private void sortNormal(ExperimentParams e)
+        private void sortNormal(TestExperimentParams e)
         {
             list = e.list;
-            sW = Stopwatch.StartNew();
             int listSize = list.Length;
             int nextPos = 0;
-            while(nextPos < listSize)
+            while (nextPos < listSize)
             {
                 int minElement = nextPos;
-                for(int i = nextPos + 1; i < listSize; i++)
+                for (int i = nextPos + 1; i < listSize; i++)
                 {
-                    if(list[i] <  list[minElement])
+                    if (list[i] < list[minElement])
                     {
                         minElement = i;
                     }
@@ -54,17 +52,13 @@ namespace cpsc200assignment1
                 list[nextPos] = temp;
                 nextPos++;
             }
-            sW.Stop();
-            e.runTime = sW.ElapsedMilliseconds;
-            Console.WriteLine(e.runTime);
-            sW.Reset();
-            //e.list = list;
+            e.list = list;
+            sortCheck(list, e);
         }
 
-        private void sortReverse(ExperimentParams e)
+        private void sortReverse(TestExperimentParams e)
         {
             list = e.list;
-            sW = Stopwatch.StartNew();
             int listSize = list.Length;
             int nextPos = 0;
             while (nextPos < listSize)
@@ -82,11 +76,39 @@ namespace cpsc200assignment1
                 list[nextPos] = temp;
                 nextPos++;
             }
-            sW.Stop();
-            e.runTime = sW.ElapsedMilliseconds;
-            Console.WriteLine(e.runTime);
-            sW.Reset();
-            //e.list = list;
-        } 
+            e.list = list;
+            sortCheck(list, e);
+        }
+        private void sortCheck(int[] list, TestExperimentParams e)
+        {
+            switch (e.sortDirection)
+            {
+                case SortDirection.ascending:
+                    {
+                        for (int i = 0; i < list.Length - 1; i++)
+                        {
+                            if (list[i] > list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                case SortDirection.descending:
+                    {
+                        for (int i = 0; i < list.Length - 1; i++)
+                        {
+                            if (list[i] < list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+            }
+
+        }
     }
 }

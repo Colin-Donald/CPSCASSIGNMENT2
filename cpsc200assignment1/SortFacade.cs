@@ -9,20 +9,8 @@ namespace cpsc200assignment1
     class SortFacade
     {
         private InsertionSort IS;
-        public InsertionSort iS
-        {
-            get { return IS; }
-        }
         private SelectionSort SS;
-        public SelectionSort sS
-        {
-            get { return SS; }
-        }
         private ShellSort SHS;
-        public ShellSort shS
-        {
-            get { return SHS; }
-        }
 
         public SortFacade()
         {
@@ -38,19 +26,19 @@ namespace cpsc200assignment1
             {
                 case Sorts.insertionSort:
                 {
-                    Sort jSort = (Sort)iS;
+                    Sort jSort = (Sort)IS;
                     jSort.sort(e);
                     break;
                 }
                 case Sorts.selectionSort:
                 {
-                    Sort kSort = (Sort)sS;
+                    Sort kSort = (Sort)SS;
                     kSort.sort(e);
                     break;
                 }
                 case Sorts.shellSort:
                 {
-                    Sort lSort = (Sort)shS;
+                    Sort lSort = (Sort)SHS;
                     lSort.sort(e);
                     break;
                 }
