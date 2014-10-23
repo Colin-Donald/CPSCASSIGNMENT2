@@ -11,6 +11,7 @@ namespace cpsc200assignment1
     {
         private int[] list;
         private int[] gapSequence;
+        private int mem;
         private Stopwatch sW;
         public ShellSort()
         {
@@ -40,24 +41,34 @@ namespace cpsc200assignment1
             gapSequence = e.gapSequence;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
+            mem += 32;
             foreach(int gap in gapSequence)
             {
                 for (int i = gap; i < listSize; i++)
                 {
                     int val = list[i];
+                    mem += 32;
                     int j = i - gap;
+                    mem += 32;
                     while (j >= 0 && list[j] > val)
                     {
                         list[j + gap] = list[j];
+                        mem += 32;
                         j -= gap;
+                        mem += 32;
                     }
+                    mem -= 64;
                     list[j + gap] = val;
+                    mem += 32;
                 }
+                mem -= 96;
             }
+            mem -= 32;
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
             sW.Reset();
             sortCheck(list, e);
+            e.memory = mem;
             Console.WriteLine(e.arrayCheck);
         }
 
@@ -67,23 +78,33 @@ namespace cpsc200assignment1
             gapSequence = e.gapSequence;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
+            mem += 32;
             foreach (int gap in gapSequence)
             {
                 for (int i = gap; i < listSize; i++)
                 {
                     int val = list[i];
+                    mem += 32;
                     int j = i - gap;
+                    mem += 32;
                     while (j >= 0 && list[j] < val)
                     {
                         list[j + gap] = list[j];
+                        mem += 32;
                         j -= gap;
+                        mem += 32;
                     }
+                    mem -= 64;
                     list[j + gap] = val;
+                    mem += 32;
                 }
+                mem -= 96;
             }
+            mem -= 32;
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
             sW.Reset();
+            e.memory = mem;
             sortCheck(list, e);
             Console.WriteLine(e.arrayCheck);
         }

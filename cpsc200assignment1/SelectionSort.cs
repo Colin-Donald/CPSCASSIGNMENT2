@@ -39,7 +39,9 @@ namespace cpsc200assignment1
             list = e.list;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
+            mem += 32;
             int nextPos = 0;
+            mem += 32;
             while(nextPos < listSize)
             {
                 int minElement = nextPos;
@@ -61,12 +63,14 @@ namespace cpsc200assignment1
                 nextPos++;
                 mem -= 96;
             }
+            mem -= 64;
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
-            //Console.WriteLine(e.runTime);
+            Console.WriteLine(e.runTime);
             sW.Reset();
+            e.memory = mem;
             sortCheck(list, e);
-            Console.WriteLine(e.arrayCheck);
+            //Console.WriteLine(e.arrayCheck);
         }
 
         private void sortReverse(ExperimentParams e)
@@ -74,28 +78,37 @@ namespace cpsc200assignment1
             list = e.list;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
+            mem += 32;
             int nextPos = 0;
+            mem += 32;
             while (nextPos < listSize)
             {
                 int minElement = nextPos;
+                mem += 32;
                 for (int i = nextPos + 1; i < listSize; i++)
                 {
                     if (list[i] > list[minElement])
                     {
                         minElement = i;
+                        mem += 32;
                     }
                 }
                 int temp = list[minElement];
                 list[minElement] = list[nextPos];
+                mem += 32;
                 list[nextPos] = temp;
+                mem += 32;
                 nextPos++;
+                mem += 32;
             }
+            mem -= 64;
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
-            //Console.WriteLine(e.runTime);
+            Console.WriteLine(e.runTime);
             sW.Reset();
+            e.memory = mem;
             sortCheck(list, e);
-            Console.WriteLine(e.arrayCheck);
+            //Console.WriteLine(e.arrayCheck);
         }
 
         private void sortCheck(int[] list, ExperimentParams e)

@@ -10,10 +10,12 @@ namespace cpsc200assignment1
     {
         private Experiment e;
         private CustomExperiment cE;
+        private UnitTests uT;
         public ExperimentFacade()
         {
             e = new Experiment();
             cE = new CustomExperiment();
+            uT = new UnitTests();
         }
 
         public void experimentUI()
@@ -51,11 +53,31 @@ namespace cpsc200assignment1
 
         private void unitTests()
         {
+            Console.WriteLine("1. run all sort unit tests");
+            Console.WriteLine("2. selection sort unit tests");
+            Console.WriteLine("3. insertion sort unit tests");
+            Console.WriteLine("4. shell sort unit tests");
             int i = int.Parse(Console.ReadLine());
             switch(i)
             {
                 case 1:
                 {
+                    uT.RunAllSortTests();
+                    break;
+                }
+                case 2:
+                {
+                    uT.selectionTest();
+                    break;
+                }
+                case 3:
+                {
+                    uT.insertionTest();
+                    break;
+                }
+                case 4:
+                {
+                    uT.shellTest();
                     break;
                 }
             }

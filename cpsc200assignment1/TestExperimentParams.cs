@@ -85,7 +85,7 @@ namespace cpsc200assignment1
         {
             this.GapType = gapType;
             ArraySize = arraySize;
-            GapSequence = GapSeq.GapSequence(GapType, ArraySize);
+            GapSequence = TestGapSeq.GapSequence(GapType, ArraySize);
             List = GenArray.genArray(ArraySize);
         }
 
@@ -105,7 +105,7 @@ namespace cpsc200assignment1
             sD = sortDirection;
             SortType = sorts;
             aT = arrayType;
-            GapSequence = GapSeq.GapSequence(gapType,arraySize);
+            GapSequence = TestGapSeq.GapSequence(gapType,list.Length);
             List = list;
             //List = GenArray.genArray(ArraySize);
         }

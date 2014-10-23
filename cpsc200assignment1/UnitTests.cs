@@ -21,6 +21,7 @@ namespace cpsc200assignment1
         private int[] distinctlist = new int[10] { 0, 4, 3, 2, 2, 1, 4, 5, 3, 2 };
         private int[] listAns = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         private int[] distinctlistAns = new int[10] { 0, 1, 2, 2, 2, 3, 3, 4, 4, 5 };
+        private int[] descendingDistinctlistAns = new int[10] { 5, 4, 4, 3, 3, 2, 2, 2, 1, 0 };
         public UnitTests()
         {
             eShell = new TestExperimentParams();
@@ -32,6 +33,26 @@ namespace cpsc200assignment1
             SHS = new TestShellSort();
         }
 
+        public bool RunAllSortTests()
+        {
+            bool a,b,c;
+            a = selectionTest();
+            b = insertionTest();
+            c = shellTest();
+            if (a == true && b == true && c == true)
+            {
+                functions = true;
+                Console.WriteLine("pass");
+                return functions;
+            }
+            else
+            {
+                Console.WriteLine("fail");
+                functions = false;
+                return functions;
+            }
+        }
+
         public bool selectionTest()
         {
             bool a, b, c;
@@ -41,10 +62,12 @@ namespace cpsc200assignment1
             if (a == true && b == true && c == true)
             {
                 functions = true;
+                Console.WriteLine("selection sort passed!!!! ");
                 return functions;
             }
             else
             {
+                Console.WriteLine("selection Sort failed!!!!");
                 functions = false;
                 return functions;
             }
@@ -59,10 +82,12 @@ namespace cpsc200assignment1
             if (a == true && b == true && c == true)
             {
                 functions = true;
+                Console.WriteLine("pass");
                 return functions;
             }
             else
             {
+                Console.WriteLine("fail");
                 functions = false;
                 return functions;
             }
@@ -77,10 +102,12 @@ namespace cpsc200assignment1
             if (a == true && b == true && c == true)
             {
                 functions = true;
+                Console.WriteLine("pass");
                 return functions;
             }
             else
             {
+                Console.WriteLine("fail");
                 functions = false;
                 return functions;
             }
@@ -88,6 +115,7 @@ namespace cpsc200assignment1
 
         public bool normalSelectionSort()
         {
+            Console.WriteLine("normal array selection sort");
             bool a, b, c, d;
             a = normalSelectionSortAscending();
             b = normalSelectionSortAscendingSortFacade();
@@ -95,44 +123,47 @@ namespace cpsc200assignment1
             d = normalSelectionSortDecendingSortFacade();
             if(a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool normalSelectionSortAscending()
+        private bool normalSelectionSortAscending()
         {
             eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.normal,list);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(listAns);
         }
 
-        public bool normalSelectionSortAscendingSortFacade()
+        private bool normalSelectionSortAscendingSortFacade()
         {
             eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.normal,list);
             tsf.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(listAns);
         }
         
-        public bool normalSelectionSortDescending()
+        private bool normalSelectionSortDescending()
         {
             eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.normal,list);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(reverselist);
         }
 
-        public bool normalSelectionSortDecendingSortFacade()
+        private bool normalSelectionSortDecendingSortFacade()
         {
             eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.normal,list);
             tsf.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(reverselist);
         }
 
         public bool reverseSelectionSort()
         {
+            Console.WriteLine("running reverse sorted array selction sort");
             bool a, b, c, d;
             a = reverseSelectionSortAscending();
             b = reverseSelectionSortAscendingSortFacade();
@@ -140,44 +171,47 @@ namespace cpsc200assignment1
             d = reverseSelectionSortDescendingSortFacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool reverseSelectionSortAscending()
+        private bool reverseSelectionSortAscending()
         {
-            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,list);
+            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,reverselist);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(listAns);
         }
 
-        public bool reverseSelectionSortAscendingSortFacade()
+        private bool reverseSelectionSortAscendingSortFacade()
         {
-            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,list);
+            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,reverselist);
             tsf.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(listAns);
         }
 
-        public bool reverseSelectionSortDescending()
+        private bool reverseSelectionSortDescending()
         {
-            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.reverse,list);
+            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.reverse,reverselist);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(reverselist);
         }
 
-        public bool reverseSelectionSortDescendingSortFacade()
+        private bool reverseSelectionSortDescendingSortFacade()
         {
-            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,list);
+            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.reverse,reverselist);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(reverselist);
         }
         
         public bool distinctSelectionSort()
         {
+            Console.WriteLine("running distinct array selection sort");
             bool a, b, c, d;
             a = distinctSelectionsortAscending();
             b = distinctSelectionsortAscendingSortFacade();
@@ -185,44 +219,47 @@ namespace cpsc200assignment1
             d = distinctSelectionsortDescendingSortFacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool distinctSelectionsortAscending()
+        private bool distinctSelectionsortAscending()
         {
-            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.distinct,list);
+            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.distinct,distinctlist);
             tsf.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctSelectionsortAscendingSortFacade()
+        private bool distinctSelectionsortAscendingSortFacade()
         {
-            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.distinct,list);
+            eSelection.setParams(SortDirection.ascending,Sorts.selectionSort,ArrayType.distinct,distinctlist);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctSelectionsortDescending()
+        private bool distinctSelectionsortDescending()
         {
-            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.distinct,list);
+            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.distinct,distinctlist);
             SS.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(descendingDistinctlistAns);
         }
 
-        public bool distinctSelectionsortDescendingSortFacade()
+        private bool distinctSelectionsortDescendingSortFacade()
         {
-            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.distinct,list);
+            eSelection.setParams(SortDirection.descending,Sorts.selectionSort,ArrayType.distinct,distinctlist);
             tsf.sort(eSelection);
-            return eShell.list == list;
+            return eSelection.list.SequenceEqual(descendingDistinctlistAns);
         }
 
         public bool normalInsertionSort()
         {
+            Console.WriteLine("running normal array insertion sort");
             bool a, b, c, d;
             a = normalInerstionSortAscending();
             b = normalInerstionSortAscendingSortfacade();
@@ -230,44 +267,47 @@ namespace cpsc200assignment1
             d = normalInerstionSortDescendingSortfacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool normalInerstionSortAscending()
+        private bool normalInerstionSortAscending()
         {
             eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.normal,list);
             IS.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(listAns);
         }
 
-        public bool normalInerstionSortAscendingSortfacade()
+        private bool normalInerstionSortAscendingSortfacade()
         {
             eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.normal,list);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(listAns);
         }
 
-        public bool normalInerstionSortDescending()
+        private bool normalInerstionSortDescending()
         {
             eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.normal,list);
             IS.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(reverselist);
         }
 
-        public bool normalInerstionSortDescendingSortfacade()
+        private bool normalInerstionSortDescendingSortfacade()
         {
             eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.normal,list);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(reverselist);
         }
 
         public bool reverseInsertionSort()
         {
+            Console.WriteLine("running reverse sorted array insertion sort");
             bool a, b, c, d;
             a = reverseInerstionSortAscending();
             b = reverseInerstionSortAscendingSortfacade();
@@ -275,44 +315,47 @@ namespace cpsc200assignment1
             d = reverseInerstionSortDescendingSortfacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool reverseInerstionSortAscending()
+        private bool reverseInerstionSortAscending()
         {
-            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.reverse,list);
+            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.reverse,reverselist);
             IS.sort(eInserstion);
-            return eInserstion.list == list;
+            return eInserstion.list.SequenceEqual(listAns);
         }
 
-        public bool reverseInerstionSortAscendingSortfacade()
+        private bool reverseInerstionSortAscendingSortfacade()
         {
-            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.reverse,list);
+            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.reverse,reverselist);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(listAns);
         }
 
-        public bool reverseInerstionSortDescending()
+        private bool reverseInerstionSortDescending()
         {
-            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.reverse,list);
+            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.reverse,reverselist);
             IS.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(reverselist);
         }
 
-        public bool reverseInerstionSortDescendingSortfacade()
+        private bool reverseInerstionSortDescendingSortfacade()
         {
-            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.reverse,list);
+            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.reverse,reverselist);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(reverselist);
         }
 
-        public bool distinctInsertionSort()
+        private bool distinctInsertionSort()
         {
+            Console.WriteLine("running distinct array insertion sort");
             bool a, b, c, d;
             a = distinctInerstionSortAscending();
             b = distinctInerstionSortAscendingSortfacade();
@@ -320,44 +363,47 @@ namespace cpsc200assignment1
             d = distinctInerstionSortDescendingSortfacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
         
-       public bool distinctInerstionSortAscending()
+       private bool distinctInerstionSortAscending()
         {
-            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.distinct,list);
+            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.distinct,distinctlist);
             IS.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctInerstionSortAscendingSortfacade()
+        private bool distinctInerstionSortAscendingSortfacade()
         {
-            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.distinct,list);
+            eInserstion.setParams(SortDirection.ascending,Sorts.insertionSort,ArrayType.distinct,distinctlist);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctInerstionSortDescending()
+        private bool distinctInerstionSortDescending()
         {
-            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.distinct,list);
+            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.distinct,distinctlist);
             IS.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(descendingDistinctlistAns);
         }
 
-        public bool distinctInerstionSortDescendingSortfacade()
+        private bool distinctInerstionSortDescendingSortfacade()
         {
-            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.distinct,list);
+            eInserstion.setParams(SortDirection.descending,Sorts.insertionSort,ArrayType.distinct,distinctlist);
             tsf.sort(eInserstion);
-            return eShell.list == list;
+            return eInserstion.list.SequenceEqual(descendingDistinctlistAns);
         }
 
         public bool normalShellSort()
         {
+            Console.WriteLine("running normal array shell sort");
             bool a, b, c, d;
             a = normalShellsortAscending();
             b = normalShellsortAscendingSortFacade();
@@ -365,44 +411,47 @@ namespace cpsc200assignment1
             d = normalShellsortDescendingSortFacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool normalShellsortAscending()
+        private bool normalShellsortAscending()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(listAns);
         }
 
-        public bool normalShellsortAscendingSortFacade()
+        private bool normalShellsortAscendingSortFacade()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             tsf.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(listAns);
         }
 
-        public bool normalShellsortDecending()
+        private bool normalShellsortDecending()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(reverselist);
         }
 
-        public bool normalShellsortDescendingSortFacade()
+        private bool normalShellsortDescendingSortFacade()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             tsf.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(reverselist);
         }
 
         public bool reverseShellSort()
         {
+            Console.WriteLine("running reverse sorted array shell sort");
             bool a, b, c, d;
             a = reverseShellsortAscending();
             b = reverseShellsortAscendingSortFacade();
@@ -410,44 +459,47 @@ namespace cpsc200assignment1
             d = reverseShellsortDescendingSortFacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool reverseShellsortAscending()
+        private bool reverseShellsortAscending()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.reverse,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.reverse,GapType.hibbard,reverselist);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(listAns);
         }
 
-        public bool reverseShellsortAscendingSortFacade()
+        private bool reverseShellsortAscendingSortFacade()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.reverse,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.reverse,GapType.hibbard,reverselist);
             tsf.sort(eShell);
-            return eShell.list == list;;
+            return eShell.list.SequenceEqual(listAns);
         }
 
-        public bool reverseShellsortDecending()
+        private bool reverseShellsortDecending()
         {
-            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.reverse,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.reverse,GapType.hibbard,reverselist);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual( reverselist);
         }
 
-        public bool reverseShellsortDescendingSortFacade()
+        private bool reverseShellsortDescendingSortFacade()
         {
-            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.reverse,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.reverse,GapType.hibbard,reverselist);
             tsf.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(reverselist);
         }
 
         public bool distinctShellSort()
         {
+            Console.WriteLine("running distinct array shell sort");
             bool a, b, c, d;
             a = distinctShellsortAscending();
             b = distinctShellsortAscendingSortFacade();
@@ -455,40 +507,42 @@ namespace cpsc200assignment1
             d = distinctShellsortDescendingSortFacade();
             if (a == true && b == true && c == true && d == true)
             {
+                Console.WriteLine("pass");
                 return true;
             }
             else
             {
+                Console.WriteLine("fail");
                 return false;
             }
         }
 
-        public bool distinctShellsortAscending()
+        private bool distinctShellsortAscending()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.distinct,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.distinct,GapType.hibbard,distinctlist);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctShellsortAscendingSortFacade()
+        private bool distinctShellsortAscendingSortFacade()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.distinct,list);
+            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.distinct,GapType.hibbard,distinctlist);
             tsf.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(distinctlistAns);
         }
 
-        public bool distinctShellsortDecending()
+        private bool distinctShellsortDecending()
         {
-            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.distinct,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.distinct,GapType.hibbard,distinctlist);
             SHS.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(descendingDistinctlistAns);
         }
 
-        public bool distinctShellsortDescendingSortFacade()
+        private bool distinctShellsortDescendingSortFacade()
         {
-            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.distinct,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.distinct,GapType.hibbard,distinctlist);
             tsf.sort(eShell);
-            return eShell.list == list;
+            return eShell.list.SequenceEqual(descendingDistinctlistAns);
         }
     }
 }

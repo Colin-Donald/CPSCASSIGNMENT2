@@ -47,6 +47,7 @@ namespace cpsc200assignment1
                 list[j] = val;
             }
             sortCheck(list, e);
+            e.list = list;
         }
 
         private void sortReverse(TestExperimentParams e)
@@ -65,6 +66,7 @@ namespace cpsc200assignment1
                 list[j] = val;
             }
             sortCheck(list, e);
+            e.list = list;
         }
          private void sortCheck(int[] list, TestExperimentParams e)
         {
