@@ -61,6 +61,7 @@ namespace cpsc200assignment1
                 list[nextPos] = temp;
                 mem += 32;
                 nextPos++;
+                mem -= 96;
             }
             mem -= 64;
             sW.Stop();
@@ -99,6 +100,7 @@ namespace cpsc200assignment1
                 list[nextPos] = temp;
                 mem += 32;
                 nextPos++;
+                mem -= 96;
             }
             mem -= 64;
             sW.Stop();

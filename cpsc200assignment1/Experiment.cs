@@ -187,7 +187,7 @@ namespace cpsc200assignment1
             FileIO.printResults();
         }
 
-        public void runExperiment10()
+        /*public void runExperiment10()
         {
             int arraySize = 10000;
             ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.normal);
@@ -235,6 +235,46 @@ namespace cpsc200assignment1
                 arraySize += 10000;
             }
             FileIO.printResults();
+        }*/
+
+        public void runExperiment10()
+        {
+            int arraySize = 10000;
+            ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.normal);
+            while (arraySize <= 1000000)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    ep.setParams(arraySize, GapType.knuth);
+                    sf.sort(ep);
+                    FileIO.results(ep);
+                }
+                arraySize += 10000;
+            }
+            arraySize = 10000;
+            while (arraySize <= 1000000)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    ep.setParams(arraySize, GapType.hibbard);
+                    sf.sort(ep);
+                    FileIO.results(ep);
+                }
+                arraySize += 10000;
+            }
+            arraySize = 10000;
+            while (arraySize <= 1000000)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    ep.setParams(arraySize, GapType.tokuda);
+                    sf.sort(ep);
+                    FileIO.results(ep);
+                }
+                arraySize += 10000;
+            }
+
+
         }
 
         public void setFile(string s)

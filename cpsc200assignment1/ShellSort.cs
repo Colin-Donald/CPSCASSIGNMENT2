@@ -56,12 +56,12 @@ namespace cpsc200assignment1
                         mem += 32;
                         j -= gap;
                         mem += 32;
+                        mem -= 64;
                     }
-                    mem -= 64;
                     list[j + gap] = val;
                     mem += 32;
+                    mem -= 96;
                 }
-                mem -= 96;
             }
             mem -= 32;
             sW.Stop();
@@ -94,12 +94,13 @@ namespace cpsc200assignment1
                         mem += 32;
                         j -= gap;
                         mem += 32;
+                        mem -= 64;
                     }
-                    mem -= 64;
                     list[j + gap] = val;
                     mem += 32;
+                    mem -= 96;
                 }
-                mem -= 96;
+
             }
             mem -= 32;
             sW.Stop();
