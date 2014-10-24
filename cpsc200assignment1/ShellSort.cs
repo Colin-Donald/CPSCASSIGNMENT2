@@ -69,6 +69,7 @@ namespace cpsc200assignment1
             sW.Reset();
             sortCheck(list, e);
             e.memory = mem;
+            Console.WriteLine(e.runTime);
             Console.WriteLine(e.arrayCheck);
         }
 
@@ -106,7 +107,7 @@ namespace cpsc200assignment1
             sW.Reset();
             e.memory = mem;
             sortCheck(list, e);
-            Console.WriteLine(e.arrayCheck);
+            Console.WriteLine(e.runTime);
         }
 
         private void sortCheck(int[] list, ExperimentParams e)

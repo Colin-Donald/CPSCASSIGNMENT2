@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,56 +12,46 @@ namespace cpsc200assignment1
         private List<String> ep;
         private String[] result;
         private String FilePath;
-        private String fileName;
+        private String FileName;
+        public String fileName
+        {
+            set { FileName = value; }
+        }
         private String fileType;
         private String delimiter;
         private StringBuilder sB;
         private int experimentNumber;
-
+        StreamWriter sw;
+        private String s;
         public FileIO()
         {
-            ep = new List<String>();
-            this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            this.fileName = @"\experimental_results";
+            this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            this.FileName = @"\experimental_results";
             this.fileType = ".csv";
             this.delimiter = ",";
             this.experimentNumber = 1;
-            sB = new StringBuilder();
+
+
+
+        }
+
+        public void createExperimentFile()
+        {
+            using (File.Create(FileName + fileType)) { }
         }
 
         public void results(ExperimentParams e)
         {
-            sB.Append(e.sortType.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.sortDirection.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.arrayType.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.gapType.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.arraySize.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.arrayCheck);
-            sB.Append(delimiter);
-            sB.Append(e.memory.ToString());
-            sB.Append(delimiter);
-            sB.Append(e.runTime.ToString());
-            sB.Append(delimiter);
-            sB.Append("\n");
-            ep.Add(sB.ToString());
+            s = e.sortType.ToString() + delimiter + e.sortDirection.ToString() + delimiter + e.arrayType.ToString() + delimiter
+                + e.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + e.memory + delimiter + e.runTime + delimiter; 
+            using(sw = new StreamWriter(FilePath + FileName + experimentNumber + fileType,true)){
+                sw.WriteLine(s);
+            }
         }
 
         public void printResults()
-        {
-            int i = 0;
-            result = new String[ep.Count];
-            foreach (String s in ep)
-            {
-                result[i] = s;
-            }
-            System.IO.File.WriteAllLines(FilePath + fileName + experimentNumber + fileType, result);
-            experimentNumber++;
+        {  
+                sw.Close();  
         }
-
     }
 }

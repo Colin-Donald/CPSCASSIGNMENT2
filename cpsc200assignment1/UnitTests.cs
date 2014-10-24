@@ -43,7 +43,7 @@ namespace cpsc200assignment1
             {
                 functions = true;
                 Console.WriteLine("pass");
-                return functions;
+                return true;
             }
             else
             {
@@ -63,7 +63,7 @@ namespace cpsc200assignment1
             {
                 functions = true;
                 Console.WriteLine("selection sort passed!!!! ");
-                return functions;
+                return true;
             }
             else
             {
@@ -83,7 +83,7 @@ namespace cpsc200assignment1
             {
                 functions = true;
                 Console.WriteLine("pass");
-                return functions;
+                return true;
             }
             else
             {

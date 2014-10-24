@@ -137,6 +137,7 @@ namespace cpsc200assignment1
 
         public void runExperiment7()
         {
+            FileIO.createExperimentFile();
             int arraySize = 5000;
             ep.setParams(arraySize, SortDirection.ascending, Sorts.shellSort, ArrayType.normal, GapType.hibbard);
             while (arraySize <= 150000)
@@ -231,9 +232,14 @@ namespace cpsc200assignment1
                     }
                     
                 }
-                arraySize += 5000;
+                arraySize += 10000;
             }
             FileIO.printResults();
+        }
+
+        public void setFile(string s)
+        {
+            FileIO.fileName = s;
         }
     }
 }

@@ -42,26 +42,25 @@ namespace cpsc200assignment1
             mem += 32;
             int nextPos = 0;
             mem += 32;
-            while(nextPos < listSize)
+            while (nextPos < listSize)
             {
                 int minElement = nextPos;
-                for(int i = nextPos + 1; i < listSize; i++)
+                mem += 32;
+                for (int i = nextPos + 1; i < listSize; i++)
                 {
-                    if(list[i] <  list[minElement])
+                    if (list[i] < list[minElement])
                     {
                         minElement = i;
                         mem += 32;
                     }
+                    mem -= 32;
                 }
-                mem -= 32;
                 int temp = list[minElement];
-                mem += 32;
                 list[minElement] = list[nextPos];
                 mem += 32;
                 list[nextPos] = temp;
                 mem += 32;
                 nextPos++;
-                mem -= 96;
             }
             mem -= 64;
             sW.Stop();
@@ -92,6 +91,7 @@ namespace cpsc200assignment1
                         minElement = i;
                         mem += 32;
                     }
+                    mem -= 32;
                 }
                 int temp = list[minElement];
                 list[minElement] = list[nextPos];
@@ -99,7 +99,6 @@ namespace cpsc200assignment1
                 list[nextPos] = temp;
                 mem += 32;
                 nextPos++;
-                mem += 32;
             }
             mem -= 64;
             sW.Stop();

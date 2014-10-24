@@ -39,6 +39,7 @@ namespace cpsc200assignment1
                 case 3:
                     {
                         cE.customExperiment();
+                        experimentUI();
                         break;
                     }
                 default:
@@ -47,7 +48,6 @@ namespace cpsc200assignment1
                         break;
                     }
             }
-            while (true) { }
 
         }
 
@@ -63,21 +63,31 @@ namespace cpsc200assignment1
                 case 1:
                 {
                     uT.RunAllSortTests();
+                    experimentUI();
                     break;
                 }
                 case 2:
                 {
                     uT.selectionTest();
+                    experimentUI();
                     break;
                 }
                 case 3:
                 {
                     uT.insertionTest();
+                    experimentUI();
                     break;
                 }
                 case 4:
                 {
                     uT.shellTest();
+                    experimentUI();
+                    break;
+                }
+                default:
+                {
+                    Console.WriteLine("invalid input please try again");
+                    experimentUI();
                     break;
                 }
             }
@@ -85,6 +95,8 @@ namespace cpsc200assignment1
 
         private void experiment()
         {
+            Console.WriteLine("please enter Experiment file name and path");
+            e.setFile(Console.ReadLine());
             Console.WriteLine("1.   experiment 1");
             Console.WriteLine("2.   experiment 2");
             Console.WriteLine("3.   experiment 3");
@@ -102,56 +114,67 @@ namespace cpsc200assignment1
                 case 1:
                 {
                     e.runExperiment1();
+                    experimentUI();
                     break;
                 }
                 case 2:
                 {
                     e.runExperiment2();
+                    experimentUI();
                     break;
                 }
                 case 3:
                 {
                      e.runExperiment3();
+                     experimentUI();
                      break;
                 }
                 case 4:
                 {
                     e.runExperiment4();
+                    experimentUI();
                     break;
                 }
                 case 5:
                 {
                     e.runExperiment5();
+                    experimentUI();
                     break;
                 }
                 case 6:
                 {
                     e.runExperiment6();
+                    experimentUI();
                     break;
                 }
                 case 7:
                 {
                      e.runExperiment7();
+                     experimentUI();
                      break;
                 }
                 case 8:
                 {
                     e.runExperiment8();
+                    experimentUI();
                     break;
                 }
                 case 9:
                 {
                     e.runExperiment9();
+                    experimentUI();
                     break;
                 }
                 case 10:
                 {
                     e.runExperiment10();
+                    experimentUI();
                     break;
                 }
                 case 11:
                 {
                     e.runAllExperiment();
+                    experimentUI();
                     break;
                 }
                 default:

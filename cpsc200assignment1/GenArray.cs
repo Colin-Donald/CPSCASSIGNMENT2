@@ -9,30 +9,28 @@ namespace cpsc200assignment1
     public class GenArray
     {
         private Random r;
-        private int arraySize;
         private ArrayType arrayType;
         public GenArray()
         {
              r = new Random();
         }
 
-        public int[] genArray(int arraySize)
+        public int[] genArray(int arraySize, int[] list)
         {
-            this.arraySize = arraySize;
             switch (arrayType)
             {
                 case ArrayType.normal:
                 {
-                    return genArray();
+                    return genArrayNormal(arraySize,list);
                 }
                 case ArrayType.reverse:
                 {
 
-                    return genReverseArray(genArray());
+                    return genReverseArray(genArrayNormal(arraySize,list));
                 }
                 case ArrayType.distinct:
                 {
-                    return genDistinctArray();
+                    return genDistinctArray(arraySize,list);
                 }
             }
             return null;
@@ -60,28 +58,26 @@ namespace cpsc200assignment1
             return list;
         }
 
-        public int[] genArray(ArrayType arrayType, int arraySize)
+        public int[] genArray(ArrayType arrayType, int arraySize, int[] list)
         {
-            this.arraySize = arraySize;
             this.arrayType = arrayType;
             switch (arrayType)
             {
                 case ArrayType.normal:
                 {
                     
-                    return genArray();
+                    return genArrayNormal(arraySize,list);
                 }
                 case ArrayType.distinct:
                 {
-                    return genDistinctArray();
+                    return genDistinctArray(arraySize,list);
                 }
             }
             return null;
         }
 
-        private int[] genArray()
+        private int[] genArrayNormal(int arraySize,int[] list)
         {
-            int[] list = new int[arraySize];
             for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next();
@@ -89,9 +85,8 @@ namespace cpsc200assignment1
             return list;
         }
 
-        private int[] genDistinctArray()
+        private int[] genDistinctArray(int arraySize, int[] list)
         {
-            int[] list = new int[arraySize];
             for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next(0,6);

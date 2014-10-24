@@ -78,7 +78,7 @@ namespace cpsc200assignment1
         public void setParams(int arraySize)
         {
             ArraySize = arraySize;
-            List = GenArray.genArray(ArraySize);
+            List = GenArray.genArray(ArraySize,list);
         }
 
         public void setParams(int arraySize, GapType gapType)
@@ -86,7 +86,7 @@ namespace cpsc200assignment1
             this.GapType = gapType;
             ArraySize = arraySize;
             GapSequence = TestGapSeq.GapSequence(GapType, ArraySize);
-            List = GenArray.genArray(ArraySize);
+            List = GenArray.genArray(ArraySize,list);
         }
 
         public void setParams(SortDirection sortDirection, Sorts sorts, ArrayType arrayType,int[] list )
