@@ -12,6 +12,8 @@ namespace cpsc200assignment1
         private TestExperimentParams eShell;
         private TestExperimentParams eSelection;
         private TestExperimentParams eInserstion;
+        private TestGenArray tGenArray;
+        private TestGapSeq tGapSeq;
         private TestSortFacade tsf;
         private TestInsertionSort IS;
         private TestSelectionSort SS;
@@ -22,11 +24,14 @@ namespace cpsc200assignment1
         private int[] listAns = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         private int[] distinctlistAns = new int[10] { 0, 1, 2, 2, 2, 3, 3, 4, 4, 5 };
         private int[] descendingDistinctlistAns = new int[10] { 5, 4, 4, 3, 3, 2, 2, 2, 1, 0 };
+        private int[] testList;
         public UnitTests()
         {
             eShell = new TestExperimentParams();
             eSelection = new TestExperimentParams();
             eInserstion = new TestExperimentParams();
+            tGapSeq = new TestGapSeq();
+            tGenArray = new TestGenArray();
             tsf = new TestSortFacade();
             IS = new TestInsertionSort();
             SS = new TestSelectionSort();
@@ -547,6 +552,71 @@ namespace cpsc200assignment1
             eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.distinct,GapType.hibbard,distinctlist);
             tsf.sort(eShell);
             return eShell.list.SequenceEqual(descendingDistinctlistAns);
+        }
+
+        public bool arrayGenerator()
+        {
+            bool a, b, c;
+            a = normalArray();
+            b = reverseArray();
+            c = distinctArray();
+            if (a ==true && b == true && c == true) 
+            {
+                Console.WriteLine("pass");
+                Console.WriteLine("array generator functions");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("fail");
+                return false;
+            }
+            
+        }
+
+        public bool normalArray()
+        {
+            testList = tGenArray.genArray(ArrayType.normal, 10, list);
+            if (testList.Sum() != 0)
+            {
+                Console.WriteLine("pass");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("fail");
+                return false;
+            }
+        }
+
+        public bool reverseArray()
+        {
+            testList = tGenArray.genArray(ArrayType.reverse, 10, list);
+            for (int i = 0; i < testList.Length - 1; i++)
+            {
+                if (testList[i] < testList[i + 1])
+                {
+                    Console.WriteLine("pass");
+                    return true;
+                }
+            }
+            Console.WriteLine("fail");
+            return false;
+        }
+
+        private bool distinctArray()
+        {
+            testList = tGenArray.genArray(ArrayType.distinct, 10, list);
+            for (int i = 0; i < testList.Length - 1; i++)
+            {
+                if (testList[i] > 5)
+                {
+                    Console.WriteLine("fail");
+                    return false;
+                }
+            }
+            Console.WriteLine("pass");
+            return true;
         }
     }
 }

@@ -57,6 +57,7 @@ namespace cpsc200assignment1
             Console.WriteLine("2. selection sort unit tests");
             Console.WriteLine("3. insertion sort unit tests");
             Console.WriteLine("4. shell sort unit tests");
+            Console.WriteLine("5. run genArray tests");
             int i = int.Parse(Console.ReadLine());
             switch(i)
             {
@@ -81,6 +82,13 @@ namespace cpsc200assignment1
                 case 4:
                 {
                     uT.shellTest();
+                    experimentUI();
+                    break;
+                }
+
+                case 6:
+                {
+                    uT.arrayGenerator();
                     experimentUI();
                     break;
                 }

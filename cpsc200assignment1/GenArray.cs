@@ -78,6 +78,7 @@ namespace cpsc200assignment1
 
         private int[] genArrayNormal(int arraySize,int[] list)
         {
+            Array.Resize(ref list, arraySize);
             for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next();
@@ -87,6 +88,7 @@ namespace cpsc200assignment1
 
         private int[] genDistinctArray(int arraySize, int[] list)
         {
+            Array.Resize(ref list, arraySize);
             for (int i = 0; i < arraySize; i++)
             {
                 list[i] = r.Next(0,6);

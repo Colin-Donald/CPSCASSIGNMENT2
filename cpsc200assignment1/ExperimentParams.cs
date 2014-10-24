@@ -74,7 +74,6 @@ namespace cpsc200assignment1
         public void setParams(int arraySize)
         {
             ArraySize = arraySize;
-            Array.Resize(ref List, ArraySize);
             List = GenArray.genArray(ArraySize,list);
         }
 
@@ -82,7 +81,6 @@ namespace cpsc200assignment1
         {
             this.GapType = gapType;
             ArraySize = arraySize;
-            Array.Resize(ref List, ArraySize);
             GapSequence = GapSeq.GapSequence(GapType, ArraySize);
             List = GenArray.genArray(ArraySize,list);
         }
@@ -93,7 +91,6 @@ namespace cpsc200assignment1
             sD = arrayDirection;
             SortType = sorts;
             aT = arrayType;
-            Array.Resize(ref List, ArraySize);
             List = GenArray.genArray(arrayType, ArraySize,list);
         }
 
@@ -104,7 +101,6 @@ namespace cpsc200assignment1
             SortType = sorts;
             aT = arrayType;
             GapSequence = GapSeq.GapSequence(gapType,arraySize);
-            Array.Resize(ref List, ArraySize);
             List = GenArray.genArray(ArraySize,list);
         }
     }
