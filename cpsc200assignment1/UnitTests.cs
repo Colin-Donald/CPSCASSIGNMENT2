@@ -82,12 +82,12 @@ namespace cpsc200assignment1
             if (a == true && b == true && c == true)
             {
                 functions = true;
-                Console.WriteLine("pass");
+                Console.WriteLine("insertion sort passed!!!!");
                 return true;
             }
             else
             {
-                Console.WriteLine("fail");
+                Console.WriteLine("inserstion sort failed!!!!");
                 functions = false;
                 return functions;
             }
@@ -265,6 +265,10 @@ namespace cpsc200assignment1
             b = normalInerstionSortAscendingSortfacade();
             c = normalInerstionSortDescending();
             d = normalInerstionSortDescendingSortfacade();
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+            Console.WriteLine(d);
             if (a == true && b == true && c == true && d == true)
             {
                 Console.WriteLine("pass");
@@ -437,14 +441,14 @@ namespace cpsc200assignment1
 
         private bool normalShellsortDecending()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             SHS.sort(eShell);
             return eShell.list.SequenceEqual(reverselist);
         }
 
         private bool normalShellsortDescendingSortFacade()
         {
-            eShell.setParams(SortDirection.ascending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
+            eShell.setParams(SortDirection.descending,Sorts.shellSort,ArrayType.normal,GapType.hibbard,list);
             tsf.sort(eShell);
             return eShell.list.SequenceEqual(reverselist);
         }

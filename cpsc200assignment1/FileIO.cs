@@ -37,14 +37,14 @@ namespace cpsc200assignment1
 
         public void createExperimentFile()
         {
-            using (File.Create(FileName + fileType)) { }
+            using (File.Create(FileName)) { }
         }
 
         public void results(ExperimentParams e)
         {
             s = e.sortType.ToString() + delimiter + e.sortDirection.ToString() + delimiter + e.arrayType.ToString() + delimiter
                 + e.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + e.memory + delimiter + e.runTime + delimiter; 
-            using(sw = new StreamWriter(FilePath + FileName + experimentNumber + fileType,true)){
+            using(sw = new StreamWriter(FileName,true)){
                 sw.WriteLine(s);
             }
         }
