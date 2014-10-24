@@ -9,27 +9,19 @@ namespace cpsc200assignment1
 {
     class FileIO
     {
-        private List<String> ep;
-        private String[] result;
         private String FilePath;
         private String FileName;
         public String fileName
         {
             set { FileName = value; }
         }
-        private String fileType;
         private String delimiter;
-        private StringBuilder sB;
-        private int experimentNumber;
         StreamWriter sw;
         private String s;
         public FileIO()
         {
-            this.FilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             this.FileName = @"\experimental_results";
-            this.fileType = ".csv";
             this.delimiter = ",";
-            this.experimentNumber = 1;
 
 
 

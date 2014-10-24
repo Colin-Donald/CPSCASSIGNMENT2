@@ -79,6 +79,27 @@ namespace cpsc200assignment1
                         break;
                     }
             }
+            Console.WriteLine("1. ascending sort direction");
+            Console.WriteLine("2. descending sort direction");
+            i = int.Parse(Console.ReadLine());
+            switch (i)
+            {
+                case 1:
+                    {
+                        sD = SortDirection.ascending;
+                        break;
+                    }
+                case 2:
+                    {
+                        sD = SortDirection.descending;
+                        break;
+                    }
+                default:
+                    {
+                        customExperiment();
+                        break;
+                    }
+            }
             Console.WriteLine("Please enter array size");
             arraySize = int.Parse(Console.ReadLine());
             runexperiment();
@@ -120,7 +141,7 @@ namespace cpsc200assignment1
 
         private void runexperiment()
         {
-            ep.setParams(arraySize, SortDirection.ascending, sortType, aT, gapType);
+            ep.setParams(arraySize, sD, sortType, aT, gapType);
             sf.sort(ep);
             Console.WriteLine(ep.runTime);
             Console.WriteLine(ep.memory);

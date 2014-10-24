@@ -52,8 +52,8 @@ namespace cpsc200assignment1
                     {
                         minElement = i;
                         mem += 32;
+                        mem -= 32;
                     }
-                    mem -= 32;
                 }
                 int temp = list[minElement];
                 list[minElement] = list[nextPos];

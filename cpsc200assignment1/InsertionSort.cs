@@ -85,12 +85,12 @@ namespace cpsc200assignment1
                     list[j] = list[j - 1];
                     mem += 32;
                     j--;
+                    mem -= 32;
                 }
-                mem -= 32;
                 list[j] = val;
                 mem += 32;
+                mem -= 96;
             }
-            mem -= 96;
             mem -= 32;
             sW.Stop();
             e.runTime = sW.ElapsedMilliseconds;
