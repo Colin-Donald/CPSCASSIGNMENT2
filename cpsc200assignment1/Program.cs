@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace cpsc200assignment1
 {
-    public enum Sorts { insertionSort, selectionSort, shellSort }
+    public enum Sorts { insertionSort, selectionSort, shellSort, mergeSort, quickSort }
     public enum GapType {knuth, hibbard, tokuda }
     public enum SortDirection { ascending, descending}
     public enum ArrayType { normal, reverse, distinct}
