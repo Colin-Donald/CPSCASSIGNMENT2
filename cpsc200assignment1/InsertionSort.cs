@@ -19,23 +19,6 @@ namespace cpsc200assignment1
 
         public void sort(ExperimentParams e)
         {
-            switch (e.sortDirection)
-            {
-                case SortDirection.ascending:
-                    {
-                        sortNormal(e);
-                        break;
-                    }
-                case SortDirection.descending:
-                    {
-                        sortReverse(e);
-                        break;
-                    }
-            }
-        }
-
-        private void sortNormal(ExperimentParams e)
-        {
             list = e.list;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
@@ -46,14 +29,34 @@ namespace cpsc200assignment1
                 mem += 32;
                 int j = i;
                 mem += 32;
-                while (j > 0 && list[j - 1] > val)
+                switch (e.s.sortDirection)
                 {
-                    list[j] = list[j - 1];
-                    mem += 32;
-                    j--;
-                    mem -= 32;
+                    case SortDirection.ascending:
+                        {
+                            while (j > 0 && list[j - 1] > val)
+                            {
+                                list[j] = list[j - 1];
+                                mem += 32;
+                                j--;
+                                mem -= 32;
+                            }
+                            break;
+                        }
+                    case SortDirection.descending:
+                        {
+                            while (j > 0 && list[j - 1] < val)
+                            {
+                                list[j] = list[j - 1];
+                                mem += 32;
+                                j--;
+                                mem -= 32;
+                            }
+                            break;
+                        }
                 }
+
                 
+
                 list[j] = val;
                 mem += 32;
                 mem -= 96;
@@ -65,44 +68,11 @@ namespace cpsc200assignment1
             sW.Reset();
             e.memory = mem;
             sortCheck(list, e);
-            //Console.WriteLine(e.arrayCheck);
         }
 
-        private void sortReverse(ExperimentParams e)
-        {
-            list = e.list;
-            sW = Stopwatch.StartNew();
-            int listSize = list.Length;
-            mem += 32;
-            for (int i = 1; i < listSize; i++)
-            {
-                int val = list[i];
-                mem += 32;
-                int j = i;
-                mem += 32;
-                while (j > 0 && list[j - 1] < val)
-                {
-                    list[j] = list[j - 1];
-                    mem += 32;
-                    j--;
-                    mem -= 32;
-                }
-                list[j] = val;
-                mem += 32;
-                mem -= 96;
-            }
-            mem -= 32;
-            sW.Stop();
-            e.runTime = sW.ElapsedMilliseconds;
-            Console.WriteLine(e.runTime);
-            sW.Reset();
-            e.memory = mem;
-            sortCheck(list, e);
-            //Console.WriteLine(e.arrayCheck);
-        }
          private void sortCheck(int[] list, ExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.s.sortDirection)
             {
                 case SortDirection.ascending:
                 {
@@ -130,5 +100,12 @@ namespace cpsc200assignment1
                 }
             }
         }
+         public void printList(int[] list)
+         {
+             foreach (int i in list)
+             {
+                 Console.WriteLine(i);
+             }
+         }
     }
 }

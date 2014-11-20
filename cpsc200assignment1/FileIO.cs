@@ -18,13 +18,12 @@ namespace cpsc200assignment1
         private String delimiter;
         StreamWriter sw;
         private String s;
+        private long[] averageTime = new long[10];
+        private int[] averageMem = new int[10];
         public FileIO()
         {
             this.FileName = @"\experimental_results";
             this.delimiter = ",";
-
-
-
         }
 
         public void createExperimentFile()
@@ -32,10 +31,26 @@ namespace cpsc200assignment1
             using (File.Create(FileName)) { }
         }
 
+        public void averageTimeMem(int i,ExperimentParams e)
+        {
+            averageTime[i] = e.runTime;
+            averageMem[i] = e.memory;
+        }
+
         public void results(ExperimentParams e)
         {
-            s = e.sortType.ToString() + delimiter + e.sortDirection.ToString() + delimiter + e.arrayType.ToString() + delimiter
-                + e.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + e.memory + delimiter + e.runTime + delimiter; 
+            long runTime = 0;
+            int memory = 0;
+            for(int i = 0; i < 10; i++)
+            {
+                runTime += averageTime[i];
+                memory += averageMem[i];
+            }
+            runTime /= 10;
+            memory /= 10;
+
+            s = e.s.sortType.ToString() + delimiter + e.s.sortDirection.ToString() + delimiter + e.arrayType.ToString() + delimiter
+                + e.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + memory + delimiter + runTime + delimiter; 
             using(sw = new StreamWriter(FileName,true)){
                 sw.WriteLine(s);
             }

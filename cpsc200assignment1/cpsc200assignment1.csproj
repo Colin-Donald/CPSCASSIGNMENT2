@@ -85,6 +85,7 @@
     <Compile Include="SelectionSort.cs" />
     <Compile Include="ShellSort.cs" />
     <Compile Include="SortFacade.cs" />
+    <Compile Include="SortParams.cs" />
     <Compile Include="TestExperimentParams.cs" />
     <Compile Include="TestGapSeq.cs" />
     <Compile Include="TestGenArray.cs" />
