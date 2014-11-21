@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    class TestExperimentParams
+    public class TestExperimentParams
     {
         private int ArraySize;
         public int arraySize

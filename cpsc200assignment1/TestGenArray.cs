@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    class TestGenArray
+    public class TestGenArray
     {
         private Random r;
         private ArrayType arrayType;

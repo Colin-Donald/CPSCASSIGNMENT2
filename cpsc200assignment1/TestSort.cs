@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    interface TestSort
+    public interface TestSort
     {
         void sort(TestExperimentParams ep);
     }

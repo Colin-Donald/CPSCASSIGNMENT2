@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    class TestInsertionSort : TestSort
+    private class TestInsertionSort : TestSort
     {
          private int[] list;
         public TestInsertionSort()

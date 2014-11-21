@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
-    class TestSelectionSort : TestSort
+    public class TestSelectionSort : TestSort
     {
          private int[] list;
          public TestSelectionSort()

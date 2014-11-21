@@ -20,7 +20,7 @@ namespace cpsc200assignment1
 
         public void sort(ExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.s.sortDirection)
             {
                 case SortDirection.ascending:
                 {

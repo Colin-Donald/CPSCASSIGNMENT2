@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    class TestGapSeq
+    public class TestGapSeq
     {
         public static int[] GapSequence(GapType gapType, int arraySize)
         {

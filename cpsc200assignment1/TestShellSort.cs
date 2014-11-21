@@ -3,113 +3,109 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace cpsc200assignment1
 {
-    class TestShellSort : TestSort
+    public class TestShellSort : TestSort
     {
         private int[] list;
         private int[] gapSequence;
+        private int mem;
+        private Stopwatch sW;
         public TestShellSort()
         {
 
         }
 
-        public void sort(TestExperimentParams e)
-        {
-            switch (e.sortDirection)
-            {
-                case SortDirection.ascending:
-                    {
-                        sortNormal(e);
-                        break;
-                    }
-                case SortDirection.descending:
-                    {
-                        sortReverse(e);
-                        break;
-                    }
-            }
-        }
-
-        private void sortNormal(TestExperimentParams e)
+        public void sort(ExperimentParams e)
         {
             list = e.list;
             gapSequence = e.gapSequence;
+            sW = Stopwatch.StartNew();
             int listSize = list.Length;
-            foreach(int gap in gapSequence)
-            {
-                for (int i = gap; i < listSize; i++)
-                {
-                    int val = list[i];
-                    int j = i - gap;
-                    while (j >= 0 && list[j] > val)
-                    {
-                        list[j + gap] = list[j];
-                        j -= gap;
-                    }
-                    list[j + gap] = val;
-                }
-            }
-            sortCheck(list, e);
-            e.list = list;
-            //Console.WriteLine(e.arrayCheck);
-        }
-
-        private void sortReverse(TestExperimentParams e)
-        {
-            list = e.list;
-            gapSequence = e.gapSequence;
-            int listSize = list.Length;
+            mem += 32;
             foreach (int gap in gapSequence)
             {
                 for (int i = gap; i < listSize; i++)
                 {
                     int val = list[i];
+                    mem += 32;
                     int j = i - gap;
-                    while (j >= 0 && list[j] < val)
+                    mem += 32;
+                    switch (e.s.sortDirection)
                     {
-                        list[j + gap] = list[j];
-                        j -= gap;
+                        case SortDirection.ascending:
+                            {
+
+                                while (j >= 0 && list[j] > val)
+                                {
+                                    list[j + gap] = list[j];
+                                    mem += 32;
+                                    j -= gap;
+                                    mem += 32;
+                                    mem -= 64;
+                                }
+                                break;
+                            }
+                        case SortDirection.descending:
+                            {
+                                while (j >= 0 && list[j] < val)
+                                {
+                                    list[j + gap] = list[j];
+                                    mem += 32;
+                                    j -= gap;
+                                    mem += 32;
+                                    mem -= 64;
+                                }
+                                break;
+                            }
                     }
                     list[j + gap] = val;
+                    mem += 32;
+                    mem -= 96;
                 }
             }
+            mem -= 32;
+            sW.Stop();
+            e.runTime = sW.ElapsedMilliseconds;
+            sW.Reset();
             sortCheck(list, e);
-            e.list = list;
-            //Console.WriteLine(e.arrayCheck);
+            e.memory = mem;
+            Console.WriteLine(e.runTime);
+            Console.WriteLine(e.arrayCheck);
         }
 
-        private void sortCheck(int[] list, TestExperimentParams e)
+        private void sortCheck(int[] list, ExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.s.sortDirection)
             {
                 case SortDirection.ascending:
-                {
-                    for (int i = 0; i < list.Length - 1; i++)
                     {
-                        if (list[i] > list[i + 1])
+                        for (int i = 0; i < list.Length - 1; i++)
                         {
-                            e.arrayCheck = false;
-                            break;
+                            if (list[i] > list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
                 case SortDirection.descending:
-                {
-                    for (int i = 0; i < list.Length - 1; i++)
                     {
-                        if (list[i] < list[i + 1])
+                        for (int i = 0; i < list.Length - 1; i++)
                         {
-                            e.arrayCheck = false;
-                            break;
+                            if (list[i] < list[i + 1])
+                            {
+                                e.arrayCheck = false;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
             }
-            
+
         }
 
     }
