@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace cpsc200assignment1
 {
-    private class TestInsertionSort : TestSort
+    public class TestInsertionSort : TestSort
     {
-         private int[] list;
+        private int[] list;
         public TestInsertionSort()
         {
             
@@ -16,61 +16,43 @@ namespace cpsc200assignment1
 
         public void sort(TestExperimentParams e)
         {
-            switch (e.sortDirection)
-            {
-                case SortDirection.ascending:
-                    {
-                        sortNormal(e);
-                        break;
-                    }
-                case SortDirection.descending:
-                    {
-                        sortReverse(e);
-                        break;
-                    }
-            }
-        }
-
-        private void sortNormal(TestExperimentParams e)
-        {
-            list = e.list;
-            int listSize = list.Length;
-            for(int i = 1; i < listSize; i++)
-            {
-                int val = list[i];
-                int j = i;
-                while (j > 0 && list[j - 1] > val)
-                {
-                    list[j] = list[j - 1];
-                    j--;
-                }
-                list[j] = val;
-            }
-            sortCheck(list, e);
-            e.list = list;
-        }
-
-        private void sortReverse(TestExperimentParams e)
-        {
             list = e.list;
             int listSize = list.Length;
             for (int i = 1; i < listSize; i++)
             {
                 int val = list[i];
                 int j = i;
-                while (j > 0 && list[j - 1] < val)
+                switch (e.tsp.sortDirection)
                 {
-                    list[j] = list[j - 1];
-                    j--;
+                    case SortDirection.ascending:
+                        {
+                            while (j > 0 && list[j - 1] > val)
+                            {
+                                list[j] = list[j - 1];
+                                j--;
+                            }
+                            break;
+                        }
+                    case SortDirection.descending:
+                        {
+                            while (j > 0 && list[j - 1] < val)
+                            {
+                                list[j] = list[j - 1];
+                                j--;
+                            }
+                            break;
+                        }
                 }
+
+
+
                 list[j] = val;
             }
             sortCheck(list, e);
-            e.list = list;
         }
          private void sortCheck(int[] list, TestExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.tsp.sortDirection)
             {
                 case SortDirection.ascending:
                 {

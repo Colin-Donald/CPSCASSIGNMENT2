@@ -90,10 +90,12 @@
     <Compile Include="TestGapSeq.cs" />
     <Compile Include="TestGenArray.cs" />
     <Compile Include="TestInsertionSort.cs" />
+    <Compile Include="TestQuickSort.cs" />
     <Compile Include="TestSelectionSort.cs" />
     <Compile Include="TestShellSort.cs" />
     <Compile Include="TestSort.cs" />
     <Compile Include="TestSortFacade.cs" />
+    <Compile Include="TestSortParams.cs" />
     <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>

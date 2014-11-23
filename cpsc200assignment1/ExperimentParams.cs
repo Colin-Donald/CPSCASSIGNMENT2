@@ -18,11 +18,6 @@ namespace cpsc200assignment1
         {
             get { return aT; }
         }
-        private GapType GapType;
-        public GapType gapType
-        {
-            get { return GapType; }
-        }
         private bool ArrayCheck = true;
         public bool arrayCheck
         {
@@ -50,15 +45,9 @@ namespace cpsc200assignment1
         private int[] List;
         public int[] list
         {
-            get{ return List; }
+            get { return List; }
             set { List = value; }
         }
-        private int[] GapSequence;
-        public int[] gapSequence
-        {
-            get { return GapSequence; }
-        }
-
         public ExperimentParams()
         {
             ArraySize = 0;
@@ -74,9 +63,9 @@ namespace cpsc200assignment1
 
         public void setParams(int arraySize, GapType gapType)
         {
-            this.GapType = gapType;
+            s.gapType = gapType;
             ArraySize = arraySize;
-            GapSequence = GapSeq.GapSequence(GapType, ArraySize);
+            s.gapSequence = GapSeq.GapSequence(gapType, ArraySize);
             List = GenArray.genArray(ArraySize,list);
         }
 
@@ -95,7 +84,7 @@ namespace cpsc200assignment1
             S.sortDirection = arrayDirection;
             S.sortType = sorts;
             aT = arrayType;
-            GapSequence = GapSeq.GapSequence(gapType,arraySize);
+            s.gapSequence = GapSeq.GapSequence(gapType,arraySize);
             List = GenArray.genArray(ArraySize,list);
         }
     }

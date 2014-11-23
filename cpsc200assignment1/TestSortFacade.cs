@@ -22,7 +22,7 @@ namespace cpsc200assignment1
         public void sort(TestExperimentParams e)
         {
             
-            switch (e.sortType)
+            switch (e.tsp.sortType)
             {
                 case Sorts.insertionSort:
                 {

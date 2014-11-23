@@ -21,7 +21,7 @@ namespace cpsc200assignment1
         public void sort(ExperimentParams e)
         {
             list = e.list;
-            gapSequence = e.gapSequence;
+            gapSequence = e.s.gapSequence;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
             mem += 32;

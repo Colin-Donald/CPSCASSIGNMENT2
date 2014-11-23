@@ -20,7 +20,18 @@ namespace cpsc200assignment1
             get { return SortType; }
             set { SortType = value; }
         }
-
+        private int[] GapSequence;
+        public int[] gapSequence
+        {
+            get { return GapSequence; }
+            set { GapSequence = value; }
+        }
+        private GapType GapType;
+        public GapType gapType
+        {
+            get { return GapType; }
+            set { GapType = value; }
+        }
         public SortParams()
         {
             sD = SortDirection.ascending;

@@ -18,10 +18,10 @@ namespace cpsc200assignment1
 
         }
 
-        public void sort(ExperimentParams e)
+        public void sort(TestExperimentParams e)
         {
             list = e.list;
-            gapSequence = e.gapSequence;
+            gapSequence = e.tsp.gapSequence;
             sW = Stopwatch.StartNew();
             int listSize = list.Length;
             mem += 32;
@@ -33,7 +33,7 @@ namespace cpsc200assignment1
                     mem += 32;
                     int j = i - gap;
                     mem += 32;
-                    switch (e.s.sortDirection)
+                    switch (e.tsp.sortDirection)
                     {
                         case SortDirection.ascending:
                             {
@@ -74,11 +74,12 @@ namespace cpsc200assignment1
             e.memory = mem;
             Console.WriteLine(e.runTime);
             Console.WriteLine(e.arrayCheck);
+            e.list = list;
         }
 
-        private void sortCheck(int[] list, ExperimentParams e)
+        private void sortCheck(int[] list, TestExperimentParams e)
         {
-            switch (e.s.sortDirection)
+            switch (e.tsp.sortDirection)
             {
                 case SortDirection.ascending:
                     {

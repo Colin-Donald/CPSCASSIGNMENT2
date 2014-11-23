@@ -50,7 +50,7 @@ namespace cpsc200assignment1
             memory /= 10;
 
             s = e.s.sortType.ToString() + delimiter + e.s.sortDirection.ToString() + delimiter + e.arrayType.ToString() + delimiter
-                + e.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + memory + delimiter + runTime + delimiter; 
+                + e.s.gapType.ToString() + delimiter + e.arraySize + delimiter + e.arrayCheck + delimiter + memory + delimiter + runTime + delimiter; 
             using(sw = new StreamWriter(FileName,true)){
                 sw.WriteLine(s);
             }

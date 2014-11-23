@@ -13,16 +13,6 @@ namespace cpsc200assignment1
         {
             get { return ArraySize; }
         }
-        private SortDirection sD;
-        public  SortDirection sortDirection
-        {
-            get { return sD; }
-        }
-        private Sorts SortType;
-        public Sorts sortType
-        {
-            get { return SortType; }
-        }
         private ArrayType aT;
         public ArrayType arrayType
         {
@@ -52,9 +42,10 @@ namespace cpsc200assignment1
             set { Memory = value; }
         }
         private GenArray GenArray;
-        public GenArray genArray
+        private TestSortParams tSP;
+        public TestSortParams tsp
         {
-            get { return GenArray; }
+            get { return tSP; }
         }
         private int[] List;
         public int[] list
@@ -62,16 +53,12 @@ namespace cpsc200assignment1
             get{ return List; }
             set { List = value; }
         }
-        private int[] GapSequence;
-        public int[] gapSequence
-        {
-            get { return GapSequence; }
-        }
 
         public TestExperimentParams()
         {
             ArraySize = 0;
-            sD = SortDirection.ascending;
+            tSP = new TestSortParams();
+            tsp.sortDirection = SortDirection.ascending;
             GenArray = new GenArray();
         }
 
@@ -85,15 +72,15 @@ namespace cpsc200assignment1
         {
             this.GapType = gapType;
             ArraySize = arraySize;
-            GapSequence = TestGapSeq.GapSequence(GapType, ArraySize);
+            tsp.gapSequence = TestGapSeq.GapSequence(GapType, ArraySize);
             List = GenArray.genArray(ArraySize,list);
         }
 
         public void setParams(SortDirection sortDirection, Sorts sorts, ArrayType arrayType,int[] list )
         {
             ArraySize = arraySize;
-            sD = sortDirection;
-            SortType = sorts;
+            tsp.sortDirection = sortDirection;
+            tsp.sortType = sorts;
             aT = arrayType;
             List = list;
             //List = GenArray.genArray(arrayType, ArraySize);
@@ -102,10 +89,10 @@ namespace cpsc200assignment1
         public void setParams(SortDirection sortDirection, Sorts sorts, ArrayType arrayType , GapType gapType, int[] list)
         {
             ArraySize = arraySize;
-            sD = sortDirection;
-            SortType = sorts;
+            tsp.sortDirection = sortDirection;
+            tsp.sortType = sorts;
             aT = arrayType;
-            GapSequence = TestGapSeq.GapSequence(gapType,list.Length);
+            tsp.gapSequence = TestGapSeq.GapSequence(gapType,list.Length);
             List = list;
             //List = GenArray.genArray(ArraySize);
         }

@@ -11,7 +11,7 @@ namespace cpsc200assignment1
     public enum GapType {knuth, hibbard, tokuda }
     public enum SortDirection { ascending, descending}
     public enum ArrayType { normal, reverse, distinct}
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

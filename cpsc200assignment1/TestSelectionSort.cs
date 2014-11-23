@@ -17,7 +17,7 @@ namespace cpsc200assignment1
 
         public void sort(TestExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.tsp.sortDirection)
             {
                 case SortDirection.ascending:
                 {
@@ -81,7 +81,7 @@ namespace cpsc200assignment1
         }
         private void sortCheck(int[] list, TestExperimentParams e)
         {
-            switch (e.sortDirection)
+            switch (e.tsp.sortDirection)
             {
                 case SortDirection.ascending:
                     {
